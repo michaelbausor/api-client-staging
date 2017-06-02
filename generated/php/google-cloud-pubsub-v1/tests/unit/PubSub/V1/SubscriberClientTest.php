@@ -111,7 +111,7 @@ class SubscriberClientTest extends PHPUnit_Framework_TestCase
 
         $response = $client->createSubscription($formattedName, $formattedTopic);
         $this->assertEquals($expectedResponse, $response);
-        $actualRequests = $grpcStub->getReceivedCalls();
+        $actualRequests = $grpcStub->popReceivedCalls();
         $this->assertSame(1, count($actualRequests));
         $actualFuncCall = $actualRequests[0]->getFuncCall();
         $actualRequestObject = $actualRequests[0]->getRequestObject();
@@ -151,8 +151,8 @@ class SubscriberClientTest extends PHPUnit_Framework_TestCase
             $this->assertEquals($status->details, $ex->getMessage());
         }
 
-        // Call getReceivedCalls to ensure the stub is exhausted
-        $grpcStub->getReceivedCalls();
+        // Call popReceivedCalls to ensure the stub is exhausted
+        $grpcStub->popReceivedCalls();
         $this->assertTrue($grpcStub->isExhausted());
     }
 
@@ -183,7 +183,7 @@ class SubscriberClientTest extends PHPUnit_Framework_TestCase
 
         $response = $client->getSubscription($formattedSubscription);
         $this->assertEquals($expectedResponse, $response);
-        $actualRequests = $grpcStub->getReceivedCalls();
+        $actualRequests = $grpcStub->popReceivedCalls();
         $this->assertSame(1, count($actualRequests));
         $actualFuncCall = $actualRequests[0]->getFuncCall();
         $actualRequestObject = $actualRequests[0]->getRequestObject();
@@ -221,8 +221,8 @@ class SubscriberClientTest extends PHPUnit_Framework_TestCase
             $this->assertEquals($status->details, $ex->getMessage());
         }
 
-        // Call getReceivedCalls to ensure the stub is exhausted
-        $grpcStub->getReceivedCalls();
+        // Call popReceivedCalls to ensure the stub is exhausted
+        $grpcStub->popReceivedCalls();
         $this->assertTrue($grpcStub->isExhausted());
     }
 
@@ -254,7 +254,7 @@ class SubscriberClientTest extends PHPUnit_Framework_TestCase
 
         $response = $client->updateSubscription($subscription, $updateMask);
         $this->assertEquals($expectedResponse, $response);
-        $actualRequests = $grpcStub->getReceivedCalls();
+        $actualRequests = $grpcStub->popReceivedCalls();
         $this->assertSame(1, count($actualRequests));
         $actualFuncCall = $actualRequests[0]->getFuncCall();
         $actualRequestObject = $actualRequests[0]->getRequestObject();
@@ -294,8 +294,8 @@ class SubscriberClientTest extends PHPUnit_Framework_TestCase
             $this->assertEquals($status->details, $ex->getMessage());
         }
 
-        // Call getReceivedCalls to ensure the stub is exhausted
-        $grpcStub->getReceivedCalls();
+        // Call popReceivedCalls to ensure the stub is exhausted
+        $grpcStub->popReceivedCalls();
         $this->assertTrue($grpcStub->isExhausted());
     }
 
@@ -329,7 +329,7 @@ class SubscriberClientTest extends PHPUnit_Framework_TestCase
         $this->assertSame(1, count($resources));
         $this->assertEquals($expectedResponse->getSubscriptionsList()[0], $resources[0]);
 
-        $actualRequests = $grpcStub->getReceivedCalls();
+        $actualRequests = $grpcStub->popReceivedCalls();
         $this->assertSame(1, count($actualRequests));
         $actualFuncCall = $actualRequests[0]->getFuncCall();
         $actualRequestObject = $actualRequests[0]->getRequestObject();
@@ -366,8 +366,8 @@ class SubscriberClientTest extends PHPUnit_Framework_TestCase
             $this->assertEquals($status->details, $ex->getMessage());
         }
 
-        // Call getReceivedCalls to ensure the stub is exhausted
-        $grpcStub->getReceivedCalls();
+        // Call popReceivedCalls to ensure the stub is exhausted
+        $grpcStub->popReceivedCalls();
         $this->assertTrue($grpcStub->isExhausted());
     }
 
@@ -389,7 +389,7 @@ class SubscriberClientTest extends PHPUnit_Framework_TestCase
         $formattedSubscription = SubscriberClient::formatSubscriptionName('[PROJECT]', '[SUBSCRIPTION]');
 
         $client->deleteSubscription($formattedSubscription);
-        $actualRequests = $grpcStub->getReceivedCalls();
+        $actualRequests = $grpcStub->popReceivedCalls();
         $this->assertSame(1, count($actualRequests));
         $actualFuncCall = $actualRequests[0]->getFuncCall();
         $actualRequestObject = $actualRequests[0]->getRequestObject();
@@ -427,8 +427,8 @@ class SubscriberClientTest extends PHPUnit_Framework_TestCase
             $this->assertEquals($status->details, $ex->getMessage());
         }
 
-        // Call getReceivedCalls to ensure the stub is exhausted
-        $grpcStub->getReceivedCalls();
+        // Call popReceivedCalls to ensure the stub is exhausted
+        $grpcStub->popReceivedCalls();
         $this->assertTrue($grpcStub->isExhausted());
     }
 
@@ -452,7 +452,7 @@ class SubscriberClientTest extends PHPUnit_Framework_TestCase
         $ackDeadlineSeconds = 2135351438;
 
         $client->modifyAckDeadline($formattedSubscription, $ackIds, $ackDeadlineSeconds);
-        $actualRequests = $grpcStub->getReceivedCalls();
+        $actualRequests = $grpcStub->popReceivedCalls();
         $this->assertSame(1, count($actualRequests));
         $actualFuncCall = $actualRequests[0]->getFuncCall();
         $actualRequestObject = $actualRequests[0]->getRequestObject();
@@ -494,8 +494,8 @@ class SubscriberClientTest extends PHPUnit_Framework_TestCase
             $this->assertEquals($status->details, $ex->getMessage());
         }
 
-        // Call getReceivedCalls to ensure the stub is exhausted
-        $grpcStub->getReceivedCalls();
+        // Call popReceivedCalls to ensure the stub is exhausted
+        $grpcStub->popReceivedCalls();
         $this->assertTrue($grpcStub->isExhausted());
     }
 
@@ -518,7 +518,7 @@ class SubscriberClientTest extends PHPUnit_Framework_TestCase
         $ackIds = [];
 
         $client->acknowledge($formattedSubscription, $ackIds);
-        $actualRequests = $grpcStub->getReceivedCalls();
+        $actualRequests = $grpcStub->popReceivedCalls();
         $this->assertSame(1, count($actualRequests));
         $actualFuncCall = $actualRequests[0]->getFuncCall();
         $actualRequestObject = $actualRequests[0]->getRequestObject();
@@ -558,8 +558,8 @@ class SubscriberClientTest extends PHPUnit_Framework_TestCase
             $this->assertEquals($status->details, $ex->getMessage());
         }
 
-        // Call getReceivedCalls to ensure the stub is exhausted
-        $grpcStub->getReceivedCalls();
+        // Call popReceivedCalls to ensure the stub is exhausted
+        $grpcStub->popReceivedCalls();
         $this->assertTrue($grpcStub->isExhausted());
     }
 
@@ -583,7 +583,7 @@ class SubscriberClientTest extends PHPUnit_Framework_TestCase
 
         $response = $client->pull($formattedSubscription, $maxMessages);
         $this->assertEquals($expectedResponse, $response);
-        $actualRequests = $grpcStub->getReceivedCalls();
+        $actualRequests = $grpcStub->popReceivedCalls();
         $this->assertSame(1, count($actualRequests));
         $actualFuncCall = $actualRequests[0]->getFuncCall();
         $actualRequestObject = $actualRequests[0]->getRequestObject();
@@ -623,8 +623,105 @@ class SubscriberClientTest extends PHPUnit_Framework_TestCase
             $this->assertEquals($status->details, $ex->getMessage());
         }
 
-        // Call getReceivedCalls to ensure the stub is exhausted
-        $grpcStub->getReceivedCalls();
+        // Call popReceivedCalls to ensure the stub is exhausted
+        $grpcStub->popReceivedCalls();
+        $this->assertTrue($grpcStub->isExhausted());
+    }
+
+    /**
+     * @test
+     */
+    public function streamingPullTest()
+    {
+        $grpcStub = $this->createStub([$this, 'createMockSubscriberImpl']);
+        $client = $this->createClient('createSubscriberStubFunction', $grpcStub);
+
+        $this->assertTrue($grpcStub->isExhausted());
+
+        // Mock response
+        $receivedMessagesElement = new ReceivedMessage();
+        $receivedMessages = [$receivedMessagesElement];
+        $expectedResponse = new StreamingPullResponse();
+        foreach ($receivedMessages as $elem) {
+            $expectedResponse->addReceivedMessages($elem);
+        }
+        $grpcStub->addResponse($expectedResponse);
+        $grpcStub->addResponse($expectedResponse);
+        $grpcStub->addResponse($expectedResponse);
+
+        // Mock request
+        $formattedSubscription = SubscriberClient::formatSubscriptionName('[PROJECT]', '[SUBSCRIPTION]');
+        $streamAckDeadlineSeconds = 1875467245;
+        $request = new StreamingPullRequest();
+        $request->setSubscription($formattedSubscription);
+        $request->setStreamAckDeadlineSeconds($streamAckDeadlineSeconds);
+
+        $bidi = $client->streamingPull();
+        $this->assertInstanceOf(BidiStream::class, $bidi);
+
+        $bidi->write($request);
+        $responses = [];
+        $responses[] = $bidi->read();
+
+        $bidi->writeAll([$request, $request]);
+        foreach ($bidi->closeWriteAndReadAll() as $response) {
+            $responses[] = $response;
+        }
+
+        $expectedResource = $expectedResponse->getReceivedMessagesList()[0];
+        $this->assertEquals([$expectedResource, $expectedResource, $expectedResource], $responses);
+
+        $createStreamRequests = $grpcStub->popReceivedCalls();
+        $this->assertSame(1, count($createStreamRequests));
+        $streamFuncCall = $createStreamRequests[0]->getFuncCall();
+        $streamRequestObject = $createStreamRequests[0]->getRequestObject();
+        $this->assertSame('/google.pubsub.v1.Subscriber/StreamingPull', $streamFuncCall);
+        $this->assertNull($streamRequestObject);
+
+        $callObjects = $grpcStub->getCallObjects();
+        $this->assertSame(1, count($callObjects));
+        $bidiCall = $callObjects[0];
+
+        $writeRequests = $bidiCall->popReceivedCalls();
+        $this->assertSame(3, count($writeRequests));
+        foreach ($writeRequests as $writeRequest) {
+            $this->assertEquals($formattedSubscription, $writeRequest->getSubscription());
+            $this->assertEquals($streamAckDeadlineSeconds, $writeRequest->getStreamAckDeadlineSeconds());
+        }
+
+        $this->assertTrue($grpcStub->isExhausted());
+    }
+
+    /**
+     * @test
+     */
+    public function streamingPullExceptionTest()
+    {
+        $grpcStub = $this->createStub([$this, 'createMockSubscriberImpl']);
+        $client = $this->createClient('createSubscriberStubFunction', $grpcStub);
+
+        $status = new stdClass();
+        $status->code = Grpc\STATUS_DATA_LOSS;
+        $status->details = 'internal error';
+
+        $grpcStub->setStreamingStatus($status);
+
+        $this->assertTrue($grpcStub->isExhausted());
+
+        $bidi = $client->streamingPull();
+        $results = $bidi->closeWriteAndReadAll();
+
+        try {
+            iterator_to_array($results);
+            // If the close stream method call did not throw, fail the test
+            $this->fail('Expected an ApiException, but no exception was thrown.');
+        } catch (ApiException $ex) {
+            $this->assertEquals($status->code, $ex->getCode());
+            $this->assertEquals($status->details, $ex->getMessage());
+        }
+
+        // Call popReceivedCalls to ensure the stub is exhausted
+        $grpcStub->popReceivedCalls();
         $this->assertTrue($grpcStub->isExhausted());
     }
 
@@ -744,7 +841,7 @@ class SubscriberClientTest extends PHPUnit_Framework_TestCase
         $pushConfig = new PushConfig();
 
         $client->modifyPushConfig($formattedSubscription, $pushConfig);
-        $actualRequests = $grpcStub->getReceivedCalls();
+        $actualRequests = $grpcStub->popReceivedCalls();
         $this->assertSame(1, count($actualRequests));
         $actualFuncCall = $actualRequests[0]->getFuncCall();
         $actualRequestObject = $actualRequests[0]->getRequestObject();
@@ -784,8 +881,8 @@ class SubscriberClientTest extends PHPUnit_Framework_TestCase
             $this->assertEquals($status->details, $ex->getMessage());
         }
 
-        // Call getReceivedCalls to ensure the stub is exhausted
-        $grpcStub->getReceivedCalls();
+        // Call popReceivedCalls to ensure the stub is exhausted
+        $grpcStub->popReceivedCalls();
         $this->assertTrue($grpcStub->isExhausted());
     }
 
@@ -819,7 +916,7 @@ class SubscriberClientTest extends PHPUnit_Framework_TestCase
         $this->assertSame(1, count($resources));
         $this->assertEquals($expectedResponse->getSnapshotsList()[0], $resources[0]);
 
-        $actualRequests = $grpcStub->getReceivedCalls();
+        $actualRequests = $grpcStub->popReceivedCalls();
         $this->assertSame(1, count($actualRequests));
         $actualFuncCall = $actualRequests[0]->getFuncCall();
         $actualRequestObject = $actualRequests[0]->getRequestObject();
@@ -856,8 +953,8 @@ class SubscriberClientTest extends PHPUnit_Framework_TestCase
             $this->assertEquals($status->details, $ex->getMessage());
         }
 
-        // Call getReceivedCalls to ensure the stub is exhausted
-        $grpcStub->getReceivedCalls();
+        // Call popReceivedCalls to ensure the stub is exhausted
+        $grpcStub->popReceivedCalls();
         $this->assertTrue($grpcStub->isExhausted());
     }
 
@@ -885,7 +982,7 @@ class SubscriberClientTest extends PHPUnit_Framework_TestCase
 
         $response = $client->createSnapshot($formattedName, $formattedSubscription);
         $this->assertEquals($expectedResponse, $response);
-        $actualRequests = $grpcStub->getReceivedCalls();
+        $actualRequests = $grpcStub->popReceivedCalls();
         $this->assertSame(1, count($actualRequests));
         $actualFuncCall = $actualRequests[0]->getFuncCall();
         $actualRequestObject = $actualRequests[0]->getRequestObject();
@@ -925,8 +1022,8 @@ class SubscriberClientTest extends PHPUnit_Framework_TestCase
             $this->assertEquals($status->details, $ex->getMessage());
         }
 
-        // Call getReceivedCalls to ensure the stub is exhausted
-        $grpcStub->getReceivedCalls();
+        // Call popReceivedCalls to ensure the stub is exhausted
+        $grpcStub->popReceivedCalls();
         $this->assertTrue($grpcStub->isExhausted());
     }
 
@@ -948,7 +1045,7 @@ class SubscriberClientTest extends PHPUnit_Framework_TestCase
         $formattedSnapshot = SubscriberClient::formatSnapshotName('[PROJECT]', '[SNAPSHOT]');
 
         $client->deleteSnapshot($formattedSnapshot);
-        $actualRequests = $grpcStub->getReceivedCalls();
+        $actualRequests = $grpcStub->popReceivedCalls();
         $this->assertSame(1, count($actualRequests));
         $actualFuncCall = $actualRequests[0]->getFuncCall();
         $actualRequestObject = $actualRequests[0]->getRequestObject();
@@ -986,8 +1083,8 @@ class SubscriberClientTest extends PHPUnit_Framework_TestCase
             $this->assertEquals($status->details, $ex->getMessage());
         }
 
-        // Call getReceivedCalls to ensure the stub is exhausted
-        $grpcStub->getReceivedCalls();
+        // Call popReceivedCalls to ensure the stub is exhausted
+        $grpcStub->popReceivedCalls();
         $this->assertTrue($grpcStub->isExhausted());
     }
 
@@ -1010,7 +1107,7 @@ class SubscriberClientTest extends PHPUnit_Framework_TestCase
 
         $response = $client->seek($formattedSubscription);
         $this->assertEquals($expectedResponse, $response);
-        $actualRequests = $grpcStub->getReceivedCalls();
+        $actualRequests = $grpcStub->popReceivedCalls();
         $this->assertSame(1, count($actualRequests));
         $actualFuncCall = $actualRequests[0]->getFuncCall();
         $actualRequestObject = $actualRequests[0]->getRequestObject();
@@ -1048,8 +1145,8 @@ class SubscriberClientTest extends PHPUnit_Framework_TestCase
             $this->assertEquals($status->details, $ex->getMessage());
         }
 
-        // Call getReceivedCalls to ensure the stub is exhausted
-        $grpcStub->getReceivedCalls();
+        // Call popReceivedCalls to ensure the stub is exhausted
+        $grpcStub->popReceivedCalls();
         $this->assertTrue($grpcStub->isExhausted());
     }
 
@@ -1077,7 +1174,7 @@ class SubscriberClientTest extends PHPUnit_Framework_TestCase
 
         $response = $client->setIamPolicy($formattedResource, $policy);
         $this->assertEquals($expectedResponse, $response);
-        $actualRequests = $grpcStub->getReceivedCalls();
+        $actualRequests = $grpcStub->popReceivedCalls();
         $this->assertSame(1, count($actualRequests));
         $actualFuncCall = $actualRequests[0]->getFuncCall();
         $actualRequestObject = $actualRequests[0]->getRequestObject();
@@ -1117,8 +1214,8 @@ class SubscriberClientTest extends PHPUnit_Framework_TestCase
             $this->assertEquals($status->details, $ex->getMessage());
         }
 
-        // Call getReceivedCalls to ensure the stub is exhausted
-        $grpcStub->getReceivedCalls();
+        // Call popReceivedCalls to ensure the stub is exhausted
+        $grpcStub->popReceivedCalls();
         $this->assertTrue($grpcStub->isExhausted());
     }
 
@@ -1145,7 +1242,7 @@ class SubscriberClientTest extends PHPUnit_Framework_TestCase
 
         $response = $client->getIamPolicy($formattedResource);
         $this->assertEquals($expectedResponse, $response);
-        $actualRequests = $grpcStub->getReceivedCalls();
+        $actualRequests = $grpcStub->popReceivedCalls();
         $this->assertSame(1, count($actualRequests));
         $actualFuncCall = $actualRequests[0]->getFuncCall();
         $actualRequestObject = $actualRequests[0]->getRequestObject();
@@ -1183,8 +1280,8 @@ class SubscriberClientTest extends PHPUnit_Framework_TestCase
             $this->assertEquals($status->details, $ex->getMessage());
         }
 
-        // Call getReceivedCalls to ensure the stub is exhausted
-        $grpcStub->getReceivedCalls();
+        // Call popReceivedCalls to ensure the stub is exhausted
+        $grpcStub->popReceivedCalls();
         $this->assertTrue($grpcStub->isExhausted());
     }
 
@@ -1208,7 +1305,7 @@ class SubscriberClientTest extends PHPUnit_Framework_TestCase
 
         $response = $client->testIamPermissions($formattedResource, $permissions);
         $this->assertEquals($expectedResponse, $response);
-        $actualRequests = $grpcStub->getReceivedCalls();
+        $actualRequests = $grpcStub->popReceivedCalls();
         $this->assertSame(1, count($actualRequests));
         $actualFuncCall = $actualRequests[0]->getFuncCall();
         $actualRequestObject = $actualRequests[0]->getRequestObject();
@@ -1248,8 +1345,8 @@ class SubscriberClientTest extends PHPUnit_Framework_TestCase
             $this->assertEquals($status->details, $ex->getMessage());
         }
 
-        // Call getReceivedCalls to ensure the stub is exhausted
-        $grpcStub->getReceivedCalls();
+        // Call popReceivedCalls to ensure the stub is exhausted
+        $grpcStub->popReceivedCalls();
         $this->assertTrue($grpcStub->isExhausted());
     }
 }

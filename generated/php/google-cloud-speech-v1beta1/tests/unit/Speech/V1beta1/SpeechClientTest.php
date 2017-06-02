@@ -106,7 +106,7 @@ class SpeechClientTest extends PHPUnit_Framework_TestCase
 
         $response = $client->syncRecognize($config, $audio);
         $this->assertEquals($expectedResponse, $response);
-        $actualRequests = $grpcStub->getReceivedCalls();
+        $actualRequests = $grpcStub->popReceivedCalls();
         $this->assertSame(1, count($actualRequests));
         $actualFuncCall = $actualRequests[0]->getFuncCall();
         $actualRequestObject = $actualRequests[0]->getRequestObject();
@@ -152,8 +152,8 @@ class SpeechClientTest extends PHPUnit_Framework_TestCase
             $this->assertEquals($status->details, $ex->getMessage());
         }
 
-        // Call getReceivedCalls to ensure the stub is exhausted
-        $grpcStub->getReceivedCalls();
+        // Call popReceivedCalls to ensure the stub is exhausted
+        $grpcStub->popReceivedCalls();
         $this->assertTrue($grpcStub->isExhausted());
     }
 
@@ -202,9 +202,9 @@ class SpeechClientTest extends PHPUnit_Framework_TestCase
         $response = $client->asyncRecognize($config, $audio);
         $this->assertFalse($response->isDone());
         $this->assertNull($response->getResult());
-        $apiRequests = $grpcStub->getReceivedCalls();
+        $apiRequests = $grpcStub->popReceivedCalls();
         $this->assertSame(1, count($apiRequests));
-        $operationsRequestsEmpty = $operationsStub->getReceivedCalls();
+        $operationsRequestsEmpty = $operationsStub->popReceivedCalls();
         $this->assertSame(0, count($operationsRequestsEmpty));
 
         $actualApiFuncCall = $apiRequests[0]->getFuncCall();
@@ -219,9 +219,9 @@ class SpeechClientTest extends PHPUnit_Framework_TestCase
         $response->pollUntilComplete();
         $this->assertTrue($response->isDone());
         $this->assertEquals($expectedResponse, $response->getResult());
-        $apiRequestsEmpty = $grpcStub->getReceivedCalls();
+        $apiRequestsEmpty = $grpcStub->popReceivedCalls();
         $this->assertSame(0, count($apiRequestsEmpty));
-        $operationsRequests = $operationsStub->getReceivedCalls();
+        $operationsRequests = $operationsStub->popReceivedCalls();
         $this->assertSame(1, count($operationsRequests));
 
         $actualOperationsFuncCall = $operationsRequests[0]->getFuncCall();
@@ -290,9 +290,9 @@ class SpeechClientTest extends PHPUnit_Framework_TestCase
             $this->assertEquals($status->details, $ex->getMessage());
         }
 
-        // Call getReceivedCalls to ensure the stubs are exhausted
-        $grpcStub->getReceivedCalls();
-        $operationsStub->getReceivedCalls();
+        // Call popReceivedCalls to ensure the stubs are exhausted
+        $grpcStub->popReceivedCalls();
+        $operationsStub->popReceivedCalls();
         $this->assertTrue($grpcStub->isExhausted());
         $this->assertTrue($operationsStub->isExhausted());
     }
@@ -332,7 +332,7 @@ class SpeechClientTest extends PHPUnit_Framework_TestCase
 
         $this->assertEquals([$expectedResponse, $expectedResponse, $expectedResponse], $responses);
 
-        $createStreamRequests = $grpcStub->getReceivedCalls();
+        $createStreamRequests = $grpcStub->popReceivedCalls();
         $this->assertSame(1, count($createStreamRequests));
         $streamFuncCall = $createStreamRequests[0]->getFuncCall();
         $streamRequestObject = $createStreamRequests[0]->getRequestObject();
@@ -343,7 +343,7 @@ class SpeechClientTest extends PHPUnit_Framework_TestCase
         $this->assertSame(1, count($callObjects));
         $bidiCall = $callObjects[0];
 
-        $writeRequests = $bidiCall->getReceivedCalls();
+        $writeRequests = $bidiCall->popReceivedCalls();
         $this->assertSame(3, count($writeRequests));
         foreach ($writeRequests as $writeRequest) {
         }
@@ -379,8 +379,8 @@ class SpeechClientTest extends PHPUnit_Framework_TestCase
             $this->assertEquals($status->details, $ex->getMessage());
         }
 
-        // Call getReceivedCalls to ensure the stub is exhausted
-        $grpcStub->getReceivedCalls();
+        // Call popReceivedCalls to ensure the stub is exhausted
+        $grpcStub->popReceivedCalls();
         $this->assertTrue($grpcStub->isExhausted());
     }
 }
