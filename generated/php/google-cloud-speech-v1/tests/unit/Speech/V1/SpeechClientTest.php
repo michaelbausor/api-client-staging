@@ -316,10 +316,12 @@ class SpeechClientTest extends PHPUnit_Framework_TestCase
         $this->assertTrue($grpcStub->isExhausted());
 
         // Mock response
-        $expectedResponse = new StreamingRecognizeResponse();
-        $grpcStub->addResponse($expectedResponse);
-        $grpcStub->addResponse($expectedResponse);
-        $grpcStub->addResponse($expectedResponse);
+        $expectedResponse2 = new StreamingRecognizeResponse();
+        $grpcStub->addResponse($expectedResponse2);
+        $expectedResponse3 = new StreamingRecognizeResponse();
+        $grpcStub->addResponse($expectedResponse3);
+        $expectedResponse4 = new StreamingRecognizeResponse();
+        $grpcStub->addResponse($expectedResponse4);
 
         // Mock request
         $request = new StreamingRecognizeRequest();
@@ -336,7 +338,11 @@ class SpeechClientTest extends PHPUnit_Framework_TestCase
             $responses[] = $response;
         }
 
-        $this->assertEquals([$expectedResponse, $expectedResponse, $expectedResponse], $responses);
+        $expectedResponses = [];
+        $expectedResponses[] = $expectedResponse2;
+        $expectedResponses[] = $expectedResponse3;
+        $expectedResponses[] = $expectedResponse4;
+        $this->assertEquals($expectedResponses, $responses);
 
         $createStreamRequests = $grpcStub->popReceivedCalls();
         $this->assertSame(1, count($createStreamRequests));
@@ -345,14 +351,12 @@ class SpeechClientTest extends PHPUnit_Framework_TestCase
         $this->assertSame('/google.cloud.speech.v1.Speech/StreamingRecognize', $streamFuncCall);
         $this->assertNull($streamRequestObject);
 
-        $callObjects = $grpcStub->getCallObjects();
+        $callObjects = $grpcStub->popCallObjects();
         $this->assertSame(1, count($callObjects));
         $bidiCall = $callObjects[0];
 
         $writeRequests = $bidiCall->popReceivedCalls();
         $this->assertSame(3, count($writeRequests));
-        foreach ($writeRequests as $writeRequest) {
-        }
 
         $this->assertTrue($grpcStub->isExhausted());
     }

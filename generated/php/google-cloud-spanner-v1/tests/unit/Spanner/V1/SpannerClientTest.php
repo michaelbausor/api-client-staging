@@ -337,13 +337,24 @@ class SpannerClientTest extends PHPUnit_Framework_TestCase
         $this->assertTrue($grpcStub->isExhausted());
 
         // Mock response
-        $chunkedValue = true;
-        $resumeToken = '103';
-        $expectedResponse = new PartialResultSet();
-        $expectedResponse->setChunkedValue($chunkedValue);
-        $expectedResponse->setResumeToken($resumeToken);
-        $grpcStub->addResponse($expectedResponse);
-        $grpcStub->addResponse($expectedResponse);
+        $chunkedValue2 = false;
+        $resumeToken2 = '90';
+        $expectedResponse2 = new PartialResultSet();
+        $expectedResponse2->setChunkedValue($chunkedValue2);
+        $expectedResponse2->setResumeToken($resumeToken2);
+        $grpcStub->addResponse($expectedResponse2);
+        $chunkedValue3 = true;
+        $resumeToken3 = '91';
+        $expectedResponse3 = new PartialResultSet();
+        $expectedResponse3->setChunkedValue($chunkedValue3);
+        $expectedResponse3->setResumeToken($resumeToken3);
+        $grpcStub->addResponse($expectedResponse3);
+        $chunkedValue4 = false;
+        $resumeToken4 = '92';
+        $expectedResponse4 = new PartialResultSet();
+        $expectedResponse4->setChunkedValue($chunkedValue4);
+        $expectedResponse4->setResumeToken($resumeToken4);
+        $grpcStub->addResponse($expectedResponse4);
 
         // Mock request
         $formattedSession = SpannerClient::formatSessionName('[PROJECT]', '[INSTANCE]', '[DATABASE]', '[SESSION]');
@@ -352,8 +363,13 @@ class SpannerClientTest extends PHPUnit_Framework_TestCase
         $serverStream = $client->executeStreamingSql($formattedSession, $sql);
         $this->assertInstanceOf(ServerStream::class, $serverStream);
 
-        $responseList = iterator_to_array($serverStream->readAll());
-        $this->assertEquals([$expectedResponse, $expectedResponse], $responseList);
+        $responses = iterator_to_array($serverStream->readAll());
+
+        $expectedResponses = [];
+        $expectedResponses[] = $expectedResponse2;
+        $expectedResponses[] = $expectedResponse3;
+        $expectedResponses[] = $expectedResponse4;
+        $this->assertEquals($expectedResponses, $responses);
 
         $actualRequests = $grpcStub->popReceivedCalls();
         $this->assertSame(1, count($actualRequests));
@@ -401,84 +417,6 @@ class SpannerClientTest extends PHPUnit_Framework_TestCase
 
         // Call popReceivedCalls to ensure the stub is exhausted
         $grpcStub->popReceivedCalls();
-        $this->assertTrue($grpcStub->isExhausted());
-    }
-
-    /**
-     * @test
-     */
-    public function executeStreamingSqlTest()
-    {
-        $grpcStub = $this->createStub([$this, 'createMockSpannerImpl']);
-        $client = $this->createClient('createSpannerStubFunction', $grpcStub);
-
-        $this->assertTrue($grpcStub->isExhausted());
-
-        // Mock response
-        $chunkedValue = true;
-        $resumeToken = '103';
-        $expectedResponse = new PartialResultSet();
-        $expectedResponse->setChunkedValue($chunkedValue);
-        $expectedResponse->setResumeToken($resumeToken);
-        $grpcStub->addResponse($expectedResponse);
-        $grpcStub->addResponse($expectedResponse);
-
-        // Mock request
-        $formattedSession = SpannerClient::formatSessionName('[PROJECT]', '[INSTANCE]', '[DATABASE]', '[SESSION]');
-        $sql = 'sql114126';
-
-        $serverStream = $client->executeStreamingSql($formattedSession, $sql);
-        $this->assertInstanceOf(ServerStream::class, $serverStream);
-
-        $responseList = iterator_to_array($serverStream->readAll());
-        $this->assertEquals([$expectedResponse, $expectedResponse], $responseList);
-
-        $actualRequests = $grpcStub->getReceivedCalls();
-        $this->assertSame(1, count($actualRequests));
-        $actualFuncCall = $actualRequests[0]->getFuncCall();
-        $actualRequestObject = $actualRequests[0]->getRequestObject();
-        $this->assertSame('/google.spanner.v1.Spanner/ExecuteStreamingSql', $actualFuncCall);
-
-        $this->assertEquals($formattedSession, $actualRequestObject->getSession());
-        $this->assertEquals($sql, $actualRequestObject->getSql());
-
-        $this->assertTrue($grpcStub->isExhausted());
-    }
-
-    /**
-     * @test
-     */
-    public function executeStreamingSqlExceptionTest()
-    {
-        $grpcStub = $this->createStub([$this, 'createMockSpannerImpl']);
-        $client = $this->createClient('createSpannerStubFunction', $grpcStub);
-
-        $status = new stdClass();
-        $status->code = Grpc\STATUS_DATA_LOSS;
-        $status->details = 'internal error';
-
-        $grpcStub->setStreamingStatus($status);
-
-        $this->assertTrue($grpcStub->isExhausted());
-
-        // Mock request
-        $formattedSession = SpannerClient::formatSessionName('[PROJECT]', '[INSTANCE]', '[DATABASE]', '[SESSION]');
-        $sql = 'sql114126';
-
-        $serverStream = $client->executeStreamingSql($formattedSession, $sql);
-        $results = $serverStream->readAll();
-
-        try {
-            iterator_to_array($results);
-            // If the close stream method call did not throw, fail the test
-            $this->fail('Expected an ApiException, but no exception was thrown.');
-        } catch (ApiException $ex) {
-            $this->assertEquals($status->code, $ex->getCode());
-            $this->assertEquals($status->details, $ex->getMessage());
-        }
-
-        // Call getReceivedCalls to ensure the stub is exhausted
-        $grpcStub->getReceivedCalls();
         $this->assertTrue($grpcStub->isExhausted());
     }
 
@@ -564,13 +502,24 @@ class SpannerClientTest extends PHPUnit_Framework_TestCase
         $this->assertTrue($grpcStub->isExhausted());
 
         // Mock response
-        $chunkedValue = true;
-        $resumeToken = '103';
-        $expectedResponse = new PartialResultSet();
-        $expectedResponse->setChunkedValue($chunkedValue);
-        $expectedResponse->setResumeToken($resumeToken);
-        $grpcStub->addResponse($expectedResponse);
-        $grpcStub->addResponse($expectedResponse);
+        $chunkedValue2 = false;
+        $resumeToken2 = '90';
+        $expectedResponse2 = new PartialResultSet();
+        $expectedResponse2->setChunkedValue($chunkedValue2);
+        $expectedResponse2->setResumeToken($resumeToken2);
+        $grpcStub->addResponse($expectedResponse2);
+        $chunkedValue3 = true;
+        $resumeToken3 = '91';
+        $expectedResponse3 = new PartialResultSet();
+        $expectedResponse3->setChunkedValue($chunkedValue3);
+        $expectedResponse3->setResumeToken($resumeToken3);
+        $grpcStub->addResponse($expectedResponse3);
+        $chunkedValue4 = false;
+        $resumeToken4 = '92';
+        $expectedResponse4 = new PartialResultSet();
+        $expectedResponse4->setChunkedValue($chunkedValue4);
+        $expectedResponse4->setResumeToken($resumeToken4);
+        $grpcStub->addResponse($expectedResponse4);
 
         // Mock request
         $formattedSession = SpannerClient::formatSessionName('[PROJECT]', '[INSTANCE]', '[DATABASE]', '[SESSION]');
@@ -581,8 +530,13 @@ class SpannerClientTest extends PHPUnit_Framework_TestCase
         $serverStream = $client->streamingRead($formattedSession, $table, $columns, $keySet);
         $this->assertInstanceOf(ServerStream::class, $serverStream);
 
-        $responseList = iterator_to_array($serverStream->readAll());
-        $this->assertEquals([$expectedResponse, $expectedResponse], $responseList);
+        $responses = iterator_to_array($serverStream->readAll());
+
+        $expectedResponses = [];
+        $expectedResponses[] = $expectedResponse2;
+        $expectedResponses[] = $expectedResponse3;
+        $expectedResponses[] = $expectedResponse4;
+        $this->assertEquals($expectedResponses, $responses);
 
         $actualRequests = $grpcStub->popReceivedCalls();
         $this->assertSame(1, count($actualRequests));
@@ -634,90 +588,6 @@ class SpannerClientTest extends PHPUnit_Framework_TestCase
 
         // Call popReceivedCalls to ensure the stub is exhausted
         $grpcStub->popReceivedCalls();
-        $this->assertTrue($grpcStub->isExhausted());
-    }
-
-    /**
-     * @test
-     */
-    public function streamingReadTest()
-    {
-        $grpcStub = $this->createStub([$this, 'createMockSpannerImpl']);
-        $client = $this->createClient('createSpannerStubFunction', $grpcStub);
-
-        $this->assertTrue($grpcStub->isExhausted());
-
-        // Mock response
-        $chunkedValue = true;
-        $resumeToken = '103';
-        $expectedResponse = new PartialResultSet();
-        $expectedResponse->setChunkedValue($chunkedValue);
-        $expectedResponse->setResumeToken($resumeToken);
-        $grpcStub->addResponse($expectedResponse);
-        $grpcStub->addResponse($expectedResponse);
-
-        // Mock request
-        $formattedSession = SpannerClient::formatSessionName('[PROJECT]', '[INSTANCE]', '[DATABASE]', '[SESSION]');
-        $table = 'table110115790';
-        $columns = [];
-        $keySet = new KeySet();
-
-        $serverStream = $client->streamingRead($formattedSession, $table, $columns, $keySet);
-        $this->assertInstanceOf(ServerStream::class, $serverStream);
-
-        $responseList = iterator_to_array($serverStream->readAll());
-        $this->assertEquals([$expectedResponse, $expectedResponse], $responseList);
-
-        $actualRequests = $grpcStub->getReceivedCalls();
-        $this->assertSame(1, count($actualRequests));
-        $actualFuncCall = $actualRequests[0]->getFuncCall();
-        $actualRequestObject = $actualRequests[0]->getRequestObject();
-        $this->assertSame('/google.spanner.v1.Spanner/StreamingRead', $actualFuncCall);
-
-        $this->assertEquals($formattedSession, $actualRequestObject->getSession());
-        $this->assertEquals($table, $actualRequestObject->getTable());
-        $this->assertEquals($columns, $actualRequestObject->getColumnsList());
-        $this->assertEquals($keySet, $actualRequestObject->getKeySet());
-
-        $this->assertTrue($grpcStub->isExhausted());
-    }
-
-    /**
-     * @test
-     */
-    public function streamingReadExceptionTest()
-    {
-        $grpcStub = $this->createStub([$this, 'createMockSpannerImpl']);
-        $client = $this->createClient('createSpannerStubFunction', $grpcStub);
-
-        $status = new stdClass();
-        $status->code = Grpc\STATUS_DATA_LOSS;
-        $status->details = 'internal error';
-
-        $grpcStub->setStreamingStatus($status);
-
-        $this->assertTrue($grpcStub->isExhausted());
-
-        // Mock request
-        $formattedSession = SpannerClient::formatSessionName('[PROJECT]', '[INSTANCE]', '[DATABASE]', '[SESSION]');
-        $table = 'table110115790';
-        $columns = [];
-        $keySet = new KeySet();
-
-        $serverStream = $client->streamingRead($formattedSession, $table, $columns, $keySet);
-        $results = $serverStream->readAll();
-
-        try {
-            iterator_to_array($results);
-            // If the close stream method call did not throw, fail the test
-            $this->fail('Expected an ApiException, but no exception was thrown.');
-        } catch (ApiException $ex) {
-            $this->assertEquals($status->code, $ex->getCode());
-            $this->assertEquals($status->details, $ex->getMessage());
-        }
-
-        // Call getReceivedCalls to ensure the stub is exhausted
-        $grpcStub->getReceivedCalls();
         $this->assertTrue($grpcStub->isExhausted());
     }
 

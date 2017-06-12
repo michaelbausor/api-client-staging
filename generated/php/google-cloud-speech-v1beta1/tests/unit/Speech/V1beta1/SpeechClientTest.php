@@ -308,12 +308,18 @@ class SpeechClientTest extends PHPUnit_Framework_TestCase
         $this->assertTrue($grpcStub->isExhausted());
 
         // Mock response
-        $resultIndex = 520358448;
-        $expectedResponse = new StreamingRecognizeResponse();
-        $expectedResponse->setResultIndex($resultIndex);
-        $grpcStub->addResponse($expectedResponse);
-        $grpcStub->addResponse($expectedResponse);
-        $grpcStub->addResponse($expectedResponse);
+        $resultIndex2 = 1848265187;
+        $expectedResponse2 = new StreamingRecognizeResponse();
+        $expectedResponse2->setResultIndex($resultIndex2);
+        $grpcStub->addResponse($expectedResponse2);
+        $resultIndex3 = 1848265188;
+        $expectedResponse3 = new StreamingRecognizeResponse();
+        $expectedResponse3->setResultIndex($resultIndex3);
+        $grpcStub->addResponse($expectedResponse3);
+        $resultIndex4 = 1848265189;
+        $expectedResponse4 = new StreamingRecognizeResponse();
+        $expectedResponse4->setResultIndex($resultIndex4);
+        $grpcStub->addResponse($expectedResponse4);
 
         // Mock request
         $request = new StreamingRecognizeRequest();
@@ -330,7 +336,11 @@ class SpeechClientTest extends PHPUnit_Framework_TestCase
             $responses[] = $response;
         }
 
-        $this->assertEquals([$expectedResponse, $expectedResponse, $expectedResponse], $responses);
+        $expectedResponses = [];
+        $expectedResponses[] = $expectedResponse2;
+        $expectedResponses[] = $expectedResponse3;
+        $expectedResponses[] = $expectedResponse4;
+        $this->assertEquals($expectedResponses, $responses);
 
         $createStreamRequests = $grpcStub->popReceivedCalls();
         $this->assertSame(1, count($createStreamRequests));
@@ -339,14 +349,12 @@ class SpeechClientTest extends PHPUnit_Framework_TestCase
         $this->assertSame('/google.cloud.speech.v1beta1.Speech/StreamingRecognize', $streamFuncCall);
         $this->assertNull($streamRequestObject);
 
-        $callObjects = $grpcStub->getCallObjects();
+        $callObjects = $grpcStub->popCallObjects();
         $this->assertSame(1, count($callObjects));
         $bidiCall = $callObjects[0];
 
         $writeRequests = $bidiCall->popReceivedCalls();
         $this->assertSame(3, count($writeRequests));
-        foreach ($writeRequests as $writeRequest) {
-        }
 
         $this->assertTrue($grpcStub->isExhausted());
     }
