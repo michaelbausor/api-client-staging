@@ -42,7 +42,7 @@ use Google\Rpc\Code;
 use stdClass;
 
 /**
- * @group cloudtasks
+ * @group cloud-tasks
  * @group grpc
  */
 class CloudTasksClientTest extends GeneratedTest

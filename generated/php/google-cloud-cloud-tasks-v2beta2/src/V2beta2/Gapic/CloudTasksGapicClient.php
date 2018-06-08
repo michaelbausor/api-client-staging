@@ -35,6 +35,7 @@ use Google\ApiCore\CredentialsWrapper;
 use Google\ApiCore\FetchAuthTokenInterface;
 use Google\ApiCore\GapicClientTrait;
 use Google\ApiCore\PathTemplate;
+use Google\ApiCore\RequestParamsHeaderDescriptor;
 use Google\ApiCore\RetrySettings;
 use Google\ApiCore\Transport\TransportInterface;
 use Google\ApiCore\ValidationException;
@@ -445,6 +446,13 @@ class CloudTasksGapicClient
             $request->setPageToken($optionalArgs['pageToken']);
         }
 
+        $requestParams = new RequestParamsHeaderDescriptor([
+          'parent' => $request->getParent(),
+        ]);
+        $optionalArgs['headers'] = isset($optionalArgs['headers'])
+            ? array_merge($requestParams->getHeader(), $optionalArgs['headers'])
+            : $requestParams->getHeader();
+
         return $this->getPagedListResponse(
             'ListQueues',
             $optionalArgs,
@@ -490,6 +498,13 @@ class CloudTasksGapicClient
     {
         $request = new GetQueueRequest();
         $request->setName($name);
+
+        $requestParams = new RequestParamsHeaderDescriptor([
+          'name' => $request->getName(),
+        ]);
+        $optionalArgs['headers'] = isset($optionalArgs['headers'])
+            ? array_merge($requestParams->getHeader(), $optionalArgs['headers'])
+            : $requestParams->getHeader();
 
         return $this->startCall(
             'GetQueue',
@@ -557,6 +572,13 @@ class CloudTasksGapicClient
         $request = new CreateQueueRequest();
         $request->setParent($parent);
         $request->setQueue($queue);
+
+        $requestParams = new RequestParamsHeaderDescriptor([
+          'parent' => $request->getParent(),
+        ]);
+        $optionalArgs['headers'] = isset($optionalArgs['headers'])
+            ? array_merge($requestParams->getHeader(), $optionalArgs['headers'])
+            : $requestParams->getHeader();
 
         return $this->startCall(
             'CreateQueue',
@@ -629,6 +651,13 @@ class CloudTasksGapicClient
             $request->setUpdateMask($optionalArgs['updateMask']);
         }
 
+        $requestParams = new RequestParamsHeaderDescriptor([
+          'queue.name' => $request->getQueue()->getName(),
+        ]);
+        $optionalArgs['headers'] = isset($optionalArgs['headers'])
+            ? array_merge($requestParams->getHeader(), $optionalArgs['headers'])
+            : $requestParams->getHeader();
+
         return $this->startCall(
             'UpdateQueue',
             Queue::class,
@@ -684,6 +713,13 @@ class CloudTasksGapicClient
         $request = new DeleteQueueRequest();
         $request->setName($name);
 
+        $requestParams = new RequestParamsHeaderDescriptor([
+          'name' => $request->getName(),
+        ]);
+        $optionalArgs['headers'] = isset($optionalArgs['headers'])
+            ? array_merge($requestParams->getHeader(), $optionalArgs['headers'])
+            : $requestParams->getHeader();
+
         return $this->startCall(
             'DeleteQueue',
             GPBEmpty::class,
@@ -734,6 +770,13 @@ class CloudTasksGapicClient
     {
         $request = new PurgeQueueRequest();
         $request->setName($name);
+
+        $requestParams = new RequestParamsHeaderDescriptor([
+          'name' => $request->getName(),
+        ]);
+        $optionalArgs['headers'] = isset($optionalArgs['headers'])
+            ? array_merge($requestParams->getHeader(), $optionalArgs['headers'])
+            : $requestParams->getHeader();
 
         return $this->startCall(
             'PurgeQueue',
@@ -786,6 +829,13 @@ class CloudTasksGapicClient
     {
         $request = new PauseQueueRequest();
         $request->setName($name);
+
+        $requestParams = new RequestParamsHeaderDescriptor([
+          'name' => $request->getName(),
+        ]);
+        $optionalArgs['headers'] = isset($optionalArgs['headers'])
+            ? array_merge($requestParams->getHeader(), $optionalArgs['headers'])
+            : $requestParams->getHeader();
 
         return $this->startCall(
             'PauseQueue',
@@ -844,6 +894,13 @@ class CloudTasksGapicClient
         $request = new ResumeQueueRequest();
         $request->setName($name);
 
+        $requestParams = new RequestParamsHeaderDescriptor([
+          'name' => $request->getName(),
+        ]);
+        $optionalArgs['headers'] = isset($optionalArgs['headers'])
+            ? array_merge($requestParams->getHeader(), $optionalArgs['headers'])
+            : $requestParams->getHeader();
+
         return $this->startCall(
             'ResumeQueue',
             Queue::class,
@@ -895,6 +952,13 @@ class CloudTasksGapicClient
     {
         $request = new GetIamPolicyRequest();
         $request->setResource($resource);
+
+        $requestParams = new RequestParamsHeaderDescriptor([
+          'resource' => $request->getResource(),
+        ]);
+        $optionalArgs['headers'] = isset($optionalArgs['headers'])
+            ? array_merge($requestParams->getHeader(), $optionalArgs['headers'])
+            : $requestParams->getHeader();
 
         return $this->startCall(
             'GetIamPolicy',
@@ -956,6 +1020,13 @@ class CloudTasksGapicClient
         $request->setResource($resource);
         $request->setPolicy($policy);
 
+        $requestParams = new RequestParamsHeaderDescriptor([
+          'resource' => $request->getResource(),
+        ]);
+        $optionalArgs['headers'] = isset($optionalArgs['headers'])
+            ? array_merge($requestParams->getHeader(), $optionalArgs['headers'])
+            : $requestParams->getHeader();
+
         return $this->startCall(
             'SetIamPolicy',
             Policy::class,
@@ -1012,6 +1083,13 @@ class CloudTasksGapicClient
         $request = new TestIamPermissionsRequest();
         $request->setResource($resource);
         $request->setPermissions($permissions);
+
+        $requestParams = new RequestParamsHeaderDescriptor([
+          'resource' => $request->getResource(),
+        ]);
+        $optionalArgs['headers'] = isset($optionalArgs['headers'])
+            ? array_merge($requestParams->getHeader(), $optionalArgs['headers'])
+            : $requestParams->getHeader();
 
         return $this->startCall(
             'TestIamPermissions',
@@ -1116,6 +1194,13 @@ class CloudTasksGapicClient
             $request->setPageToken($optionalArgs['pageToken']);
         }
 
+        $requestParams = new RequestParamsHeaderDescriptor([
+          'parent' => $request->getParent(),
+        ]);
+        $optionalArgs['headers'] = isset($optionalArgs['headers'])
+            ? array_merge($requestParams->getHeader(), $optionalArgs['headers'])
+            : $requestParams->getHeader();
+
         return $this->getPagedListResponse(
             'ListTasks',
             $optionalArgs,
@@ -1178,6 +1263,13 @@ class CloudTasksGapicClient
         if (isset($optionalArgs['responseView'])) {
             $request->setResponseView($optionalArgs['responseView']);
         }
+
+        $requestParams = new RequestParamsHeaderDescriptor([
+          'name' => $request->getName(),
+        ]);
+        $optionalArgs['headers'] = isset($optionalArgs['headers'])
+            ? array_merge($requestParams->getHeader(), $optionalArgs['headers'])
+            : $requestParams->getHeader();
 
         return $this->startCall(
             'GetTask',
@@ -1293,6 +1385,13 @@ class CloudTasksGapicClient
             $request->setResponseView($optionalArgs['responseView']);
         }
 
+        $requestParams = new RequestParamsHeaderDescriptor([
+          'parent' => $request->getParent(),
+        ]);
+        $optionalArgs['headers'] = isset($optionalArgs['headers'])
+            ? array_merge($requestParams->getHeader(), $optionalArgs['headers'])
+            : $requestParams->getHeader();
+
         return $this->startCall(
             'CreateTask',
             Task::class,
@@ -1340,6 +1439,13 @@ class CloudTasksGapicClient
     {
         $request = new DeleteTaskRequest();
         $request->setName($name);
+
+        $requestParams = new RequestParamsHeaderDescriptor([
+          'name' => $request->getName(),
+        ]);
+        $optionalArgs['headers'] = isset($optionalArgs['headers'])
+            ? array_merge($requestParams->getHeader(), $optionalArgs['headers'])
+            : $requestParams->getHeader();
 
         return $this->startCall(
             'DeleteTask',
@@ -1475,6 +1581,13 @@ class CloudTasksGapicClient
             $request->setFilter($optionalArgs['filter']);
         }
 
+        $requestParams = new RequestParamsHeaderDescriptor([
+          'parent' => $request->getParent(),
+        ]);
+        $optionalArgs['headers'] = isset($optionalArgs['headers'])
+            ? array_merge($requestParams->getHeader(), $optionalArgs['headers'])
+            : $requestParams->getHeader();
+
         return $this->startCall(
             'LeaseTasks',
             LeaseTasksResponse::class,
@@ -1544,6 +1657,13 @@ class CloudTasksGapicClient
         $request = new AcknowledgeTaskRequest();
         $request->setName($name);
         $request->setScheduleTime($scheduleTime);
+
+        $requestParams = new RequestParamsHeaderDescriptor([
+          'name' => $request->getName(),
+        ]);
+        $optionalArgs['headers'] = isset($optionalArgs['headers'])
+            ? array_merge($requestParams->getHeader(), $optionalArgs['headers'])
+            : $requestParams->getHeader();
 
         return $this->startCall(
             'AcknowledgeTask',
@@ -1626,6 +1746,13 @@ class CloudTasksGapicClient
             $request->setResponseView($optionalArgs['responseView']);
         }
 
+        $requestParams = new RequestParamsHeaderDescriptor([
+          'name' => $request->getName(),
+        ]);
+        $optionalArgs['headers'] = isset($optionalArgs['headers'])
+            ? array_merge($requestParams->getHeader(), $optionalArgs['headers'])
+            : $requestParams->getHeader();
+
         return $this->startCall(
             'RenewLease',
             Task::class,
@@ -1702,6 +1829,13 @@ class CloudTasksGapicClient
         if (isset($optionalArgs['responseView'])) {
             $request->setResponseView($optionalArgs['responseView']);
         }
+
+        $requestParams = new RequestParamsHeaderDescriptor([
+          'name' => $request->getName(),
+        ]);
+        $optionalArgs['headers'] = isset($optionalArgs['headers'])
+            ? array_merge($requestParams->getHeader(), $optionalArgs['headers'])
+            : $requestParams->getHeader();
 
         return $this->startCall(
             'CancelLease',
@@ -1791,6 +1925,13 @@ class CloudTasksGapicClient
         if (isset($optionalArgs['responseView'])) {
             $request->setResponseView($optionalArgs['responseView']);
         }
+
+        $requestParams = new RequestParamsHeaderDescriptor([
+          'name' => $request->getName(),
+        ]);
+        $optionalArgs['headers'] = isset($optionalArgs['headers'])
+            ? array_merge($requestParams->getHeader(), $optionalArgs['headers'])
+            : $requestParams->getHeader();
 
         return $this->startCall(
             'RunTask',
