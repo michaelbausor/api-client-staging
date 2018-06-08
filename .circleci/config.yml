@@ -105,8 +105,3 @@ workflows:
         filters:
           branches:
             only: autobuild-php
-experimental:
-  notify:
-    branches:
-      ignore:
-        - /autobuild.*/
