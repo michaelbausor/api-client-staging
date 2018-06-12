@@ -1,15 +1,5 @@
-# Build results
-.gradle
-generated/build
-generated/java/build
-generated/java/*/build
-
-# Node
-node_modules/
-
-# PHP
-vendor/
-composer.lock
-
-# Go
-!/generated/go/**/vendor
+api-client-staging
+artman-output
+googleapis
+env
+.php_cs.cache

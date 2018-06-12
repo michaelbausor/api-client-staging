@@ -1,0 +1,133 @@
+#!/bin/bash
+
+set -e
+
+function clone_repo() {
+  CLONE_INTO_DIR="$1"
+  BRANCH_TO_CLONE="$2"
+  REPO_TO_CLONE="$3"
+
+  rm -rf $CLONE_INTO_DIR
+  echo "git clone -b $BRANCH_TO_CLONE $REPO_TO_CLONE $CLONE_INTO_DIR"
+  git clone -b $BRANCH_TO_CLONE $REPO_TO_CLONE $CLONE_INTO_DIR
+}
+
+function clone_googleapis() {
+  GOOGLEAPIS_HOME="/googleapis"
+  GOOGLEAPIS_BRANCH="master"
+  GOOGLEAPIS_REPO="https://github.com/googleapis/googleapis"
+
+  clone_repo $GOOGLEAPIS_HOME $GOOGLEAPIS_BRANCH $GOOGLEAPIS_REPO
+  cd $GOOGLEAPIS_HOME
+  git rev-parse HEAD > HEAD-SHA.txt
+  cd -
+}
+
+function clone_toolkit() {
+  TOOLKIT_HOME="/toolkit"
+  TOOLKIT_BRANCH="master"
+  TOOLKIT_REPO="https://github.com/googleapis/toolkit"
+
+  clone_repo $TOOLKIT_HOME $TOOLKIT_BRANCH $TOOLKIT_REPO
+  cd $TOOLKIT_HOME
+  git rev-parse HEAD > HEAD-SHA.txt
+  cd -
+}
+
+function regenerate() {
+  ARTMAN_OUTPUT_DIR="$1"
+  ARTMAN_ARTIFACT_NAME="$2"
+
+  ARTMAN_YAMLS=$(find $GOOGLEAPIS_HOME/google/ -name artman_*.yaml | xargs grep -l $ARTMAN_ARTIFACT_NAME)
+
+  echo "Artman yamls: $ARTMAN_YAMLS"
+  echo "Artman output: $ARTMAN_OUTPUT_DIR"
+  echo "Artman artifact name: $ARTMAN_ARTIFACT_NAME"
+
+  rm -rf $ARTMAN_OUTPUT_DIR
+  for ARTMAN_YAML in $ARTMAN_YAMLS; do
+    ARTMAN_ARGS="--local --root-dir $GOOGLEAPIS_HOME --output-dir $ARTMAN_OUTPUT_DIR --config $ARTMAN_YAML generate $ARTMAN_ARTIFACT_NAME"
+    echo $ARTMAN_ARGS
+    artman $ARTMAN_ARGS
+  done
+}
+
+function copy_and_commit_to_api_client_staging() {
+  ARTMAN_OUTPUT_DIR_TO_COPY="$1"
+  API_CLIENT_STAGING_COPY_DST="$2"
+
+  TOOLKIT_SHA="$(cat $TOOLKIT_HOME/HEAD-SHA.txt)"
+  GOOGLEAPIS_SHA="$(cat $GOOGLEAPIS_HOME/HEAD-SHA.txt)"
+
+  API_CLIENT_STAGING_COMMIT_MSG=$(cat <<EOM
+Autobuild commit
+
+Toolkit: $TOOLKIT_SHA
+Googleapis: $GOOGLEAPIS_SHA
+EOM
+)
+
+  rm -rf $API_CLIENT_STAGING_COPY_DST
+  cp -r $ARTMAN_OUTPUT_DIR_TO_COPY $API_CLIENT_STAGING_COPY_DST
+
+  cd $API_CLIENT_STAGING_DIR
+  git add .
+  git commit -m "$API_CLIENT_STAGING_COMMIT_MSG"
+  cd -
+}
+
+function push_to_api_client_staging() {
+  API_CLIENT_STAGING_DIR="$1"
+  API_CLIENT_STAGING_BRANCH="$2"
+  API_CLIENT_STAGING_GH_REPO="$3"
+
+  cd $API_CLIENT_STAGING_DIR
+  echo "git push $API_CLIENT_STAGING_GH_REPO $API_CLIENT_STAGING_BRANCH"
+  git push $API_CLIENT_STAGING_GH_REPO $API_CLIENT_STAGING_BRANCH
+  cd -
+}
+
+function refresh() {
+  ARTMAN_ARTIFACT_NAME="$1"
+  API_CLIENT_STAGING_BRANCH="$2"
+  ARTMAN_OUTPUT_SUBDIR_TO_COPY="$3"
+  API_CLIENT_STAGING_COPY_DST_SUBDIR="$4"
+
+  ARTMAN_OUTPUT_DIR=$(pwd)/artman-output
+  API_CLIENT_STAGING_DIR=$(pwd)/api-client-staging
+  ARTMAN_OUTPUT_DIR_TO_COPY=$ARTMAN_OUTPUT_DIR/$ARTMAN_OUTPUT_SUBDIR_TO_COPY
+  API_CLIENT_STAGING_COPY_DST=$API_CLIENT_STAGING_DIR/$API_CLIENT_STAGING_COPY_DST_SUBDIR
+
+  API_CLIENT_STAGING_GH_REPO="https://$GH_OAUTH_TOKEN@github.com/michaelbausor/api-client-staging"
+
+  clone_googleapis
+  clone_toolkit
+  regenerate $ARTMAN_OUTPUT_DIR $ARTMAN_ARTIFACT_NAME
+  clone_repo $API_CLIENT_STAGING_DIR $API_CLIENT_STAGING_BRANCH $API_CLIENT_STAGING_GH_REPO
+  copy_and_commit_to_api_client_staging $ARTMAN_OUTPUT_DIR_TO_COPY $API_CLIENT_STAGING_COPY_DST
+  push_to_api_client_staging $API_CLIENT_STAGING_DIR $API_CLIENT_STAGING_BRANCH $API_CLIENT_STAGING_GH_REPO
+}
+
+function refresh_php() {
+  ARTMAN_ARTIFACT_NAME=php_gapic
+  API_CLIENT_STAGING_BRANCH=autobuild-php
+  ARTMAN_OUTPUT_SUBDIR_TO_COPY=php
+  API_CLIENT_STAGING_COPY_DST_SUBDIR=generated/php
+
+  refresh $ARTMAN_ARTIFACT_NAME $API_CLIENT_STAGING_BRANCH $ARTMAN_OUTPUT_SUBDIR_TO_COPY $API_CLIENT_STAGING_COPY_DST_SUBDIR
+}
+
+if [ -z "$1" ]; then
+  echo "Need to pass in a language"
+  exit 1
+fi
+
+case $1 in
+"php")
+  refresh_php
+  ;;
+*)
+  echo "Unknown language: $1"
+  exit 1
+  ;;
+esac
