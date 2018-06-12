@@ -12,7 +12,7 @@ jobs:
           command: |
             DATETAG=$(date '+%Y%m%d-%H%M%S')
             docker build -t googleapis/artman:autobuild-latest .
-            docker tag googleapis/artman-autobuild:latest googleapis/artman:autobuild-$DATETAG
+            docker tag googleapis/artman:autobuild-latest googleapis/artman:autobuild-$DATETAG
       - run:
           name: Regenerate APIs for PHP
           command: |

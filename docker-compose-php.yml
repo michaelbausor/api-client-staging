@@ -3,7 +3,7 @@ services:
   app:
     build:
       context: .
-    image: googleapis/artman-autobuild:latest
+    image: googleapis/artman:autobuild-latest
     command: php
     environment:
       - GH_OAUTH_TOKEN=${AUTOBUILD_GH_OAUTH_TOKEN}
