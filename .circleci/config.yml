@@ -3,21 +3,20 @@ version: 2.0
 jobs:
   autobuild-php-nightly:
     docker:
-      - image: googleapis/artman-autobuild:latest
-    steps:
-      - run: php
-  build-docker:
-    docker:
       - image: docker:stable-git
     steps:
+      - checkout
       - setup_remote_docker
-      - run: |
-          DATETAG=$(date '+%Y%m%d-%H%M%S')
-          docker build -t googleapis/artman:autobuild-latest .
-          docker tag googleapis/artman-autobuild:latest googleapis/artman-autobuild:$DATETAG
-      - run
-      - run: docker build -t googleapis/artman:autobuild-latest .
-      
+      - run:
+          name: Build Docker image
+          command: |
+            DATETAG=$(date '+%Y%m%d-%H%M%S')
+            docker build -t googleapis/artman:autobuild-latest .
+            docker tag googleapis/artman-autobuild:latest googleapis/artman:autobuild-$DATETAG
+      - run:
+          name: Regenerate APIs for PHP
+          command: |
+            docker-compose -f ./docker-compose-php.yml up
 
 workflows:
   version: 2
@@ -32,4 +31,4 @@ workflows:
       - autobuild-php-nightly
   build:
     jobs:
-      - build-docker
+      - autobuild-php-nightly
