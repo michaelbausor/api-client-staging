@@ -23,7 +23,7 @@ jobs:
       - run:
           name: Regenerate APIs for PHP
           command: |
-            docker-compose -f ./docker-compose-php.yml up
+            docker-compose -f ./docker-compose-php.yml run app
 
 workflows:
   version: 2
