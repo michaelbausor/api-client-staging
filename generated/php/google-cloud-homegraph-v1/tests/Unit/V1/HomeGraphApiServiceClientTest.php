@@ -37,7 +37,7 @@ use stdClass;
 
 /**
  * @group homegraph
- * @group grpc
+ * @group gapic
  */
 class HomeGraphApiServiceClientTest extends GeneratedTest
 {

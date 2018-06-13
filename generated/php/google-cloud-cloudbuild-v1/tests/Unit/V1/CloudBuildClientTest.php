@@ -40,7 +40,7 @@ use stdClass;
 
 /**
  * @group cloudbuild
- * @group grpc
+ * @group gapic
  */
 class CloudBuildClientTest extends GeneratedTest
 {

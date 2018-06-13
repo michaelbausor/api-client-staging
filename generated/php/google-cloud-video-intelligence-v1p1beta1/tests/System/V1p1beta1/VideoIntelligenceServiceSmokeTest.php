@@ -28,7 +28,7 @@ use Google\Cloud\VideoIntelligence\V1p1beta1\Feature;
 
 /**
  * @group video-intelligence
- * @group grpc
+ * @group gapic
  */
 class VideoIntelligenceServiceSmokeTest extends GeneratedTest
 {

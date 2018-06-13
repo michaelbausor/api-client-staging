@@ -42,7 +42,7 @@ use stdClass;
 
 /**
  * @group servicemanagement
- * @group grpc
+ * @group gapic
  */
 class ServiceManagerClientTest extends GeneratedTest
 {

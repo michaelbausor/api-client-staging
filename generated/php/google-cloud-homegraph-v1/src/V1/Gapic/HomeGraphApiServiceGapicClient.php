@@ -255,7 +255,7 @@ class HomeGraphApiServiceGapicClient
      * @throws ValidationException
      * @experimental
      */
-    public function __construct($options = [])
+    public function __construct(array $options = [])
     {
         $clientOptions = $this->buildClientOptions($options);
         $this->setClientOptions($clientOptions);
@@ -303,7 +303,7 @@ class HomeGraphApiServiceGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function requestSyncDevices($agentUserId, $optionalArgs = [])
+    public function requestSyncDevices($agentUserId, array $optionalArgs = [])
     {
         $request = new RequestSyncDevicesRequest();
         $request->setAgentUserId($agentUserId);
@@ -374,7 +374,7 @@ class HomeGraphApiServiceGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function reportStateAndNotification($agentUserId, $payload, $optionalArgs = [])
+    public function reportStateAndNotification($agentUserId, $payload, array $optionalArgs = [])
     {
         $request = new ReportStateAndNotificationRequest();
         $request->setAgentUserId($agentUserId);
@@ -430,7 +430,7 @@ class HomeGraphApiServiceGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function deleteAgentUser($agentUserId, $optionalArgs = [])
+    public function deleteAgentUser($agentUserId, array $optionalArgs = [])
     {
         $request = new DeleteAgentUserRequest();
         $request->setAgentUserId($agentUserId);

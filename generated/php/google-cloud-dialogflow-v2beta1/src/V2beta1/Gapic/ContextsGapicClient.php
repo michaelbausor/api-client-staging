@@ -388,7 +388,7 @@ class ContextsGapicClient
      * @throws ValidationException
      * @experimental
      */
-    public function __construct($options = [])
+    public function __construct(array $options = [])
     {
         $clientOptions = $this->buildClientOptions($options);
         $this->setClientOptions($clientOptions);
@@ -451,7 +451,7 @@ class ContextsGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function listContexts($parent, $optionalArgs = [])
+    public function listContexts($parent, array $optionalArgs = [])
     {
         $request = new ListContextsRequest();
         $request->setParent($parent);
@@ -506,7 +506,7 @@ class ContextsGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function getContext($name, $optionalArgs = [])
+    public function getContext($name, array $optionalArgs = [])
     {
         $request = new GetContextRequest();
         $request->setName($name);
@@ -557,7 +557,7 @@ class ContextsGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function createContext($parent, $context, $optionalArgs = [])
+    public function createContext($parent, $context, array $optionalArgs = [])
     {
         $request = new CreateContextRequest();
         $request->setParent($parent);
@@ -603,7 +603,7 @@ class ContextsGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function updateContext($context, $optionalArgs = [])
+    public function updateContext($context, array $optionalArgs = [])
     {
         $request = new UpdateContextRequest();
         $request->setContext($context);
@@ -654,7 +654,7 @@ class ContextsGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function deleteContext($name, $optionalArgs = [])
+    public function deleteContext($name, array $optionalArgs = [])
     {
         $request = new DeleteContextRequest();
         $request->setName($name);
@@ -701,7 +701,7 @@ class ContextsGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function deleteAllContexts($parent, $optionalArgs = [])
+    public function deleteAllContexts($parent, array $optionalArgs = [])
     {
         $request = new DeleteAllContextsRequest();
         $request->setParent($parent);

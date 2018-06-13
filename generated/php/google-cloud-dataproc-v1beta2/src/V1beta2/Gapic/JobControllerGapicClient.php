@@ -173,7 +173,7 @@ class JobControllerGapicClient
      * @throws ValidationException
      * @experimental
      */
-    public function __construct($options = [])
+    public function __construct(array $options = [])
     {
         $clientOptions = $this->buildClientOptions($options);
         $this->setClientOptions($clientOptions);
@@ -226,7 +226,7 @@ class JobControllerGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function submitJob($projectId, $region, $job, $optionalArgs = [])
+    public function submitJob($projectId, $region, $job, array $optionalArgs = [])
     {
         $request = new SubmitJobRequest();
         $request->setProjectId($projectId);
@@ -279,7 +279,7 @@ class JobControllerGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function getJob($projectId, $region, $jobId, $optionalArgs = [])
+    public function getJob($projectId, $region, $jobId, array $optionalArgs = [])
     {
         $request = new GetJobRequest();
         $request->setProjectId($projectId);
@@ -372,7 +372,7 @@ class JobControllerGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function listJobs($projectId, $region, $optionalArgs = [])
+    public function listJobs($projectId, $region, array $optionalArgs = [])
     {
         $request = new ListJobsRequest();
         $request->setProjectId($projectId);
@@ -445,7 +445,7 @@ class JobControllerGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function updateJob($projectId, $region, $jobId, $job, $updateMask, $optionalArgs = [])
+    public function updateJob($projectId, $region, $jobId, $job, $updateMask, array $optionalArgs = [])
     {
         $request = new UpdateJobRequest();
         $request->setProjectId($projectId);
@@ -500,7 +500,7 @@ class JobControllerGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function cancelJob($projectId, $region, $jobId, $optionalArgs = [])
+    public function cancelJob($projectId, $region, $jobId, array $optionalArgs = [])
     {
         $request = new CancelJobRequest();
         $request->setProjectId($projectId);
@@ -549,7 +549,7 @@ class JobControllerGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function deleteJob($projectId, $region, $jobId, $optionalArgs = [])
+    public function deleteJob($projectId, $region, $jobId, array $optionalArgs = [])
     {
         $request = new DeleteJobRequest();
         $request->setProjectId($projectId);

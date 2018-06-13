@@ -27,7 +27,7 @@ use Google\ApiCore\Testing\GeneratedTest;
 
 /**
  * @group servicemanagement
- * @group grpc
+ * @group gapic
  */
 class ServiceManagerSmokeTest extends GeneratedTest
 {

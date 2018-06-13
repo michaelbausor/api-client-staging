@@ -43,7 +43,7 @@ use stdClass;
 
 /**
  * @group bigtable-admin
- * @group grpc
+ * @group gapic
  */
 class BigtableTableAdminClientTest extends GeneratedTest
 {

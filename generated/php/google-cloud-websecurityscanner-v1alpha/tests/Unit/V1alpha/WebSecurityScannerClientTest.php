@@ -44,7 +44,7 @@ use stdClass;
 
 /**
  * @group websecurityscanner
- * @group grpc
+ * @group gapic
  */
 class WebSecurityScannerClientTest extends GeneratedTest
 {

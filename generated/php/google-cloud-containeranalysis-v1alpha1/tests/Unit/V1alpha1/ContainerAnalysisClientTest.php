@@ -42,7 +42,7 @@ use stdClass;
 
 /**
  * @group containeranalysis
- * @group grpc
+ * @group gapic
  */
 class ContainerAnalysisClientTest extends GeneratedTest
 {

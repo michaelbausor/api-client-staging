@@ -343,7 +343,7 @@ class ContainerAnalysisGapicClient
      * @throws ValidationException
      * @experimental
      */
-    public function __construct($options = [])
+    public function __construct(array $options = [])
     {
         $clientOptions = $this->buildClientOptions($options);
         $this->setClientOptions($clientOptions);
@@ -380,7 +380,7 @@ class ContainerAnalysisGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function getOccurrence($name, $optionalArgs = [])
+    public function getOccurrence($name, array $optionalArgs = [])
     {
         $request = new GetOccurrenceRequest();
         $request->setName($name);
@@ -453,7 +453,7 @@ class ContainerAnalysisGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function listOccurrences($parent, $optionalArgs = [])
+    public function listOccurrences($parent, array $optionalArgs = [])
     {
         $request = new ListOccurrencesRequest();
         $request->setParent($parent);
@@ -511,7 +511,7 @@ class ContainerAnalysisGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function deleteOccurrence($name, $optionalArgs = [])
+    public function deleteOccurrence($name, array $optionalArgs = [])
     {
         $request = new DeleteOccurrenceRequest();
         $request->setName($name);
@@ -560,7 +560,7 @@ class ContainerAnalysisGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function createOccurrence($parent, $occurrence, $optionalArgs = [])
+    public function createOccurrence($parent, $occurrence, array $optionalArgs = [])
     {
         $request = new CreateOccurrenceRequest();
         $request->setParent($parent);
@@ -612,7 +612,7 @@ class ContainerAnalysisGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function updateOccurrence($name, $occurrence, $optionalArgs = [])
+    public function updateOccurrence($name, $occurrence, array $optionalArgs = [])
     {
         $request = new UpdateOccurrenceRequest();
         $request->setName($name);
@@ -660,7 +660,7 @@ class ContainerAnalysisGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function getOccurrenceNote($name, $optionalArgs = [])
+    public function getOccurrenceNote($name, array $optionalArgs = [])
     {
         $request = new GetOccurrenceNoteRequest();
         $request->setName($name);
@@ -704,7 +704,7 @@ class ContainerAnalysisGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function getNote($name, $optionalArgs = [])
+    public function getNote($name, array $optionalArgs = [])
     {
         $request = new GetNoteRequest();
         $request->setName($name);
@@ -774,7 +774,7 @@ class ContainerAnalysisGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function listNotes($parent, $optionalArgs = [])
+    public function listNotes($parent, array $optionalArgs = [])
     {
         $request = new ListNotesRequest();
         $request->setParent($parent);
@@ -828,7 +828,7 @@ class ContainerAnalysisGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function deleteNote($name, $optionalArgs = [])
+    public function deleteNote($name, array $optionalArgs = [])
     {
         $request = new DeleteNoteRequest();
         $request->setName($name);
@@ -880,7 +880,7 @@ class ContainerAnalysisGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function createNote($parent, $noteId, $note, $optionalArgs = [])
+    public function createNote($parent, $noteId, $note, array $optionalArgs = [])
     {
         $request = new CreateNoteRequest();
         $request->setParent($parent);
@@ -933,7 +933,7 @@ class ContainerAnalysisGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function updateNote($name, $note, $optionalArgs = [])
+    public function updateNote($name, $note, array $optionalArgs = [])
     {
         $request = new UpdateNoteRequest();
         $request->setName($name);
@@ -1006,7 +1006,7 @@ class ContainerAnalysisGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function listNoteOccurrences($name, $optionalArgs = [])
+    public function listNoteOccurrences($name, array $optionalArgs = [])
     {
         $request = new ListNoteOccurrencesRequest();
         $request->setName($name);
@@ -1060,7 +1060,7 @@ class ContainerAnalysisGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function getVulnzOccurrencesSummary($parent, $optionalArgs = [])
+    public function getVulnzOccurrencesSummary($parent, array $optionalArgs = [])
     {
         $request = new GetVulnzOccurrencesSummaryRequest();
         $request->setParent($parent);
@@ -1124,7 +1124,7 @@ class ContainerAnalysisGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function setIamPolicy($resource, $policy, $optionalArgs = [])
+    public function setIamPolicy($resource, $policy, array $optionalArgs = [])
     {
         $request = new SetIamPolicyRequest();
         $request->setResource($resource);
@@ -1180,7 +1180,7 @@ class ContainerAnalysisGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function getIamPolicy($resource, $optionalArgs = [])
+    public function getIamPolicy($resource, array $optionalArgs = [])
     {
         $request = new GetIamPolicyRequest();
         $request->setResource($resource);
@@ -1237,7 +1237,7 @@ class ContainerAnalysisGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function testIamPermissions($resource, $permissions, $optionalArgs = [])
+    public function testIamPermissions($resource, $permissions, array $optionalArgs = [])
     {
         $request = new TestIamPermissionsRequest();
         $request->setResource($resource);

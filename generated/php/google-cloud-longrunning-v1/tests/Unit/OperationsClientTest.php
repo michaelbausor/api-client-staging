@@ -50,7 +50,7 @@ use stdClass;
 
 /**
  * @group longrunning
- * @group grpc
+ * @group gapic
  */
 class OperationsClientTest extends GeneratedTest
 {

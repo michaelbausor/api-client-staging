@@ -217,7 +217,7 @@ class DatastoreAdminGapicClient
      * @throws ValidationException
      * @experimental
      */
-    public function __construct($options = [])
+    public function __construct(array $options = [])
     {
         $clientOptions = $this->buildClientOptions($options);
         $this->setClientOptions($clientOptions);
@@ -283,7 +283,7 @@ class DatastoreAdminGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function exportEntities($projectId, $outputUrlPrefix, $optionalArgs = [])
+    public function exportEntities($projectId, $outputUrlPrefix, array $optionalArgs = [])
     {
         $request = new ExportEntitiesRequest();
         $request->setProjectId($projectId);
@@ -358,7 +358,7 @@ class DatastoreAdminGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function importEntities($projectId, $inputUrl, $optionalArgs = [])
+    public function importEntities($projectId, $inputUrl, array $optionalArgs = [])
     {
         $request = new ImportEntitiesRequest();
         $request->setProjectId($projectId);

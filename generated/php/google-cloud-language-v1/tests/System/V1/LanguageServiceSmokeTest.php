@@ -29,7 +29,7 @@ use Google\Cloud\Language\V1\Document_Type;
 
 /**
  * @group language
- * @group grpc
+ * @group gapic
  */
 class LanguageServiceSmokeTest extends GeneratedTest
 {

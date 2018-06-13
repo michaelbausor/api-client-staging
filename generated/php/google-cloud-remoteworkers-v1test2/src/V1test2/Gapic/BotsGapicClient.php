@@ -281,7 +281,7 @@ class BotsGapicClient
      * @throws ValidationException
      * @experimental
      */
-    public function __construct($options = [])
+    public function __construct(array $options = [])
     {
         $clientOptions = $this->buildClientOptions($options);
         $this->setClientOptions($clientOptions);
@@ -321,7 +321,7 @@ class BotsGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function createBotSession($parent, $botSession, $optionalArgs = [])
+    public function createBotSession($parent, $botSession, array $optionalArgs = [])
     {
         $request = new CreateBotSessionRequest();
         $request->setParent($parent);
@@ -372,7 +372,7 @@ class BotsGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function updateBotSession($name, $botSession, $updateMask, $optionalArgs = [])
+    public function updateBotSession($name, $botSession, $updateMask, array $optionalArgs = [])
     {
         $request = new UpdateBotSessionRequest();
         $request->setName($name);
@@ -423,7 +423,7 @@ class BotsGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function postBotEventTemp($name, $type, $msg, $optionalArgs = [])
+    public function postBotEventTemp($name, $type, $msg, array $optionalArgs = [])
     {
         $request = new PostBotEventTempRequest();
         $request->setName($name);

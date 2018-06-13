@@ -341,7 +341,7 @@ class CloudFunctionsServiceGapicClient
      * @throws ValidationException
      * @experimental
      */
-    public function __construct($options = [])
+    public function __construct(array $options = [])
     {
         $clientOptions = $this->buildClientOptions($options);
         $this->setClientOptions($clientOptions);
@@ -402,7 +402,7 @@ class CloudFunctionsServiceGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function listFunctions($location, $optionalArgs = [])
+    public function listFunctions($location, array $optionalArgs = [])
     {
         $request = new ListFunctionsRequest();
         $request->setLocation($location);
@@ -451,7 +451,7 @@ class CloudFunctionsServiceGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function getFunction($name, $optionalArgs = [])
+    public function getFunction($name, array $optionalArgs = [])
     {
         $request = new GetFunctionRequest();
         $request->setName($name);
@@ -524,7 +524,7 @@ class CloudFunctionsServiceGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function createFunction($location, $function, $optionalArgs = [])
+    public function createFunction($location, $function, array $optionalArgs = [])
     {
         $request = new CreateFunctionRequest();
         $request->setLocation($location);
@@ -595,7 +595,7 @@ class CloudFunctionsServiceGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function updateFunction($name, $function, $optionalArgs = [])
+    public function updateFunction($name, $function, array $optionalArgs = [])
     {
         $request = new UpdateFunctionRequest();
         $request->setName($name);
@@ -664,7 +664,7 @@ class CloudFunctionsServiceGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function deleteFunction($name, $optionalArgs = [])
+    public function deleteFunction($name, array $optionalArgs = [])
     {
         $request = new DeleteFunctionRequest();
         $request->setName($name);
@@ -710,7 +710,7 @@ class CloudFunctionsServiceGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function callFunction($name, $data, $optionalArgs = [])
+    public function callFunction($name, $data, array $optionalArgs = [])
     {
         $request = new CallFunctionRequest();
         $request->setName($name);

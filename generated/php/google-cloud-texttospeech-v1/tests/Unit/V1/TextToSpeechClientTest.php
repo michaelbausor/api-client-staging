@@ -38,7 +38,7 @@ use stdClass;
 
 /**
  * @group texttospeech
- * @group grpc
+ * @group gapic
  */
 class TextToSpeechClientTest extends GeneratedTest
 {

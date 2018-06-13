@@ -307,7 +307,7 @@ class FoldersGapicClient
      * @throws ValidationException
      * @experimental
      */
-    public function __construct($options = [])
+    public function __construct(array $options = [])
     {
         $clientOptions = $this->buildClientOptions($options);
         $this->setClientOptions($clientOptions);
@@ -377,7 +377,7 @@ class FoldersGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function listFolders($parent, $optionalArgs = [])
+    public function listFolders($parent, array $optionalArgs = [])
     {
         $request = new ListFoldersRequest();
         $request->setParent($parent);
@@ -471,7 +471,7 @@ class FoldersGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function searchFolders($optionalArgs = [])
+    public function searchFolders(array $optionalArgs = [])
     {
         $request = new SearchFoldersRequest();
         if (isset($optionalArgs['pageSize'])) {
@@ -527,7 +527,7 @@ class FoldersGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function getFolder($name, $optionalArgs = [])
+    public function getFolder($name, array $optionalArgs = [])
     {
         $request = new GetFolderRequest();
         $request->setName($name);
@@ -599,7 +599,7 @@ class FoldersGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function createFolder($parent, $folder, $optionalArgs = [])
+    public function createFolder($parent, $folder, array $optionalArgs = [])
     {
         $request = new CreateFolderRequest();
         $request->setParent($parent);
@@ -661,7 +661,7 @@ class FoldersGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function updateFolder($folder, $updateMask, $optionalArgs = [])
+    public function updateFolder($folder, $updateMask, array $optionalArgs = [])
     {
         $request = new UpdateFolderRequest();
         $request->setFolder($folder);
@@ -725,7 +725,7 @@ class FoldersGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function moveFolder($name, $destinationParent, $optionalArgs = [])
+    public function moveFolder($name, $destinationParent, array $optionalArgs = [])
     {
         $request = new MoveFolderRequest();
         $request->setName($name);
@@ -779,7 +779,7 @@ class FoldersGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function deleteFolder($name, $optionalArgs = [])
+    public function deleteFolder($name, array $optionalArgs = [])
     {
         $request = new DeleteFolderRequest();
         $request->setName($name);
@@ -833,7 +833,7 @@ class FoldersGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function undeleteFolder($name, $optionalArgs = [])
+    public function undeleteFolder($name, array $optionalArgs = [])
     {
         $request = new UndeleteFolderRequest();
         $request->setName($name);
@@ -882,7 +882,7 @@ class FoldersGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function getIamPolicy($resource, $optionalArgs = [])
+    public function getIamPolicy($resource, array $optionalArgs = [])
     {
         $request = new GetIamPolicyRequest();
         $request->setResource($resource);
@@ -936,7 +936,7 @@ class FoldersGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function setIamPolicy($resource, $policy, $optionalArgs = [])
+    public function setIamPolicy($resource, $policy, array $optionalArgs = [])
     {
         $request = new SetIamPolicyRequest();
         $request->setResource($resource);
@@ -991,7 +991,7 @@ class FoldersGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function testIamPermissions($resource, $permissions, $optionalArgs = [])
+    public function testIamPermissions($resource, $permissions, array $optionalArgs = [])
     {
         $request = new TestIamPermissionsRequest();
         $request->setResource($resource);

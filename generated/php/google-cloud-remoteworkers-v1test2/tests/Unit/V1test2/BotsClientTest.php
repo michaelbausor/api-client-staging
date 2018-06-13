@@ -37,7 +37,7 @@ use stdClass;
 
 /**
  * @group remoteworkers
- * @group grpc
+ * @group gapic
  */
 class BotsClientTest extends GeneratedTest
 {

@@ -178,7 +178,7 @@ class StreetViewPublishServiceGapicClient
      * @throws ValidationException
      * @experimental
      */
-    public function __construct($options = [])
+    public function __construct(array $options = [])
     {
         $clientOptions = $this->buildClientOptions($options);
         $this->setClientOptions($clientOptions);
@@ -218,7 +218,7 @@ class StreetViewPublishServiceGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function startUpload($optionalArgs = [])
+    public function startUpload(array $optionalArgs = [])
     {
         $request = new GPBEmpty();
 
@@ -267,7 +267,7 @@ class StreetViewPublishServiceGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function createPhoto($photo, $optionalArgs = [])
+    public function createPhoto($photo, array $optionalArgs = [])
     {
         $request = new CreatePhotoRequest();
         $request->setPhoto($photo);
@@ -320,7 +320,7 @@ class StreetViewPublishServiceGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function getPhoto($photoId, $view, $optionalArgs = [])
+    public function getPhoto($photoId, $view, array $optionalArgs = [])
     {
         $request = new GetPhotoRequest();
         $request->setPhotoId($photoId);
@@ -375,7 +375,7 @@ class StreetViewPublishServiceGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function batchGetPhotos($photoIds, $view, $optionalArgs = [])
+    public function batchGetPhotos($photoIds, $view, array $optionalArgs = [])
     {
         $request = new BatchGetPhotosRequest();
         $request->setPhotoIds($photoIds);
@@ -445,7 +445,7 @@ class StreetViewPublishServiceGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function listPhotos($view, $filter, $optionalArgs = [])
+    public function listPhotos($view, $filter, array $optionalArgs = [])
     {
         $request = new ListPhotosRequest();
         $request->setView($view);
@@ -523,7 +523,7 @@ class StreetViewPublishServiceGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function updatePhoto($photo, $updateMask, $optionalArgs = [])
+    public function updatePhoto($photo, $updateMask, array $optionalArgs = [])
     {
         $request = new UpdatePhotoRequest();
         $request->setPhoto($photo);
@@ -575,7 +575,7 @@ class StreetViewPublishServiceGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function batchUpdatePhotos($updatePhotoRequests, $optionalArgs = [])
+    public function batchUpdatePhotos($updatePhotoRequests, array $optionalArgs = [])
     {
         $request = new BatchUpdatePhotosRequest();
         $request->setUpdatePhotoRequests($updatePhotoRequests);
@@ -622,7 +622,7 @@ class StreetViewPublishServiceGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function deletePhoto($photoId, $optionalArgs = [])
+    public function deletePhoto($photoId, array $optionalArgs = [])
     {
         $request = new DeletePhotoRequest();
         $request->setPhotoId($photoId);
@@ -672,7 +672,7 @@ class StreetViewPublishServiceGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function batchDeletePhotos($photoIds, $optionalArgs = [])
+    public function batchDeletePhotos($photoIds, array $optionalArgs = [])
     {
         $request = new BatchDeletePhotosRequest();
         $request->setPhotoIds($photoIds);

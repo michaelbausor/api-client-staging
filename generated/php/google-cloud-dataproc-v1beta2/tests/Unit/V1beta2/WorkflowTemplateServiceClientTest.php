@@ -39,7 +39,7 @@ use stdClass;
 
 /**
  * @group dataproc
- * @group grpc
+ * @group gapic
  */
 class WorkflowTemplateServiceClientTest extends GeneratedTest
 {

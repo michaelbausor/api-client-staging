@@ -332,7 +332,7 @@ class WorkflowTemplateServiceGapicClient
      * @throws ValidationException
      * @experimental
      */
-    public function __construct($options = [])
+    public function __construct(array $options = [])
     {
         $clientOptions = $this->buildClientOptions($options);
         $this->setClientOptions($clientOptions);
@@ -373,7 +373,7 @@ class WorkflowTemplateServiceGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function createWorkflowTemplate($parent, $template, $optionalArgs = [])
+    public function createWorkflowTemplate($parent, $template, array $optionalArgs = [])
     {
         $request = new CreateWorkflowTemplateRequest();
         $request->setParent($parent);
@@ -427,7 +427,7 @@ class WorkflowTemplateServiceGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function getWorkflowTemplate($name, $optionalArgs = [])
+    public function getWorkflowTemplate($name, array $optionalArgs = [])
     {
         $request = new GetWorkflowTemplateRequest();
         $request->setName($name);
@@ -532,7 +532,7 @@ class WorkflowTemplateServiceGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function instantiateWorkflowTemplate($name, $optionalArgs = [])
+    public function instantiateWorkflowTemplate($name, array $optionalArgs = [])
     {
         $request = new InstantiateWorkflowTemplateRequest();
         $request->setName($name);
@@ -584,7 +584,7 @@ class WorkflowTemplateServiceGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function updateWorkflowTemplate($template, $optionalArgs = [])
+    public function updateWorkflowTemplate($template, array $optionalArgs = [])
     {
         $request = new UpdateWorkflowTemplateRequest();
         $request->setTemplate($template);
@@ -650,7 +650,7 @@ class WorkflowTemplateServiceGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function listWorkflowTemplates($parent, $optionalArgs = [])
+    public function listWorkflowTemplates($parent, array $optionalArgs = [])
     {
         $request = new ListWorkflowTemplatesRequest();
         $request->setParent($parent);
@@ -703,7 +703,7 @@ class WorkflowTemplateServiceGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function deleteWorkflowTemplate($name, $optionalArgs = [])
+    public function deleteWorkflowTemplate($name, array $optionalArgs = [])
     {
         $request = new DeleteWorkflowTemplateRequest();
         $request->setName($name);

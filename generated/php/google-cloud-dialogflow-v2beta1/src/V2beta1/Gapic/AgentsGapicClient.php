@@ -320,7 +320,7 @@ class AgentsGapicClient
      * @throws ValidationException
      * @experimental
      */
-    public function __construct($options = [])
+    public function __construct(array $options = [])
     {
         $clientOptions = $this->buildClientOptions($options);
         $this->setClientOptions($clientOptions);
@@ -358,7 +358,7 @@ class AgentsGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function getAgent($parent, $optionalArgs = [])
+    public function getAgent($parent, array $optionalArgs = [])
     {
         $request = new GetAgentRequest();
         $request->setParent($parent);
@@ -429,7 +429,7 @@ class AgentsGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function searchAgents($parent, $optionalArgs = [])
+    public function searchAgents($parent, array $optionalArgs = [])
     {
         $request = new SearchAgentsRequest();
         $request->setParent($parent);
@@ -506,7 +506,7 @@ class AgentsGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function trainAgent($parent, $optionalArgs = [])
+    public function trainAgent($parent, array $optionalArgs = [])
     {
         $request = new TrainAgentRequest();
         $request->setParent($parent);
@@ -583,7 +583,7 @@ class AgentsGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function exportAgent($parent, $optionalArgs = [])
+    public function exportAgent($parent, array $optionalArgs = [])
     {
         $request = new ExportAgentRequest();
         $request->setParent($parent);
@@ -679,7 +679,7 @@ class AgentsGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function importAgent($parent, $optionalArgs = [])
+    public function importAgent($parent, array $optionalArgs = [])
     {
         $request = new ImportAgentRequest();
         $request->setParent($parent);
@@ -777,7 +777,7 @@ class AgentsGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function restoreAgent($parent, $optionalArgs = [])
+    public function restoreAgent($parent, array $optionalArgs = [])
     {
         $request = new RestoreAgentRequest();
         $request->setParent($parent);

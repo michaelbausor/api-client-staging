@@ -44,7 +44,7 @@ use stdClass;
 
 /**
  * @group spanner-admin-instance
- * @group grpc
+ * @group gapic
  */
 class InstanceAdminClientTest extends GeneratedTest
 {

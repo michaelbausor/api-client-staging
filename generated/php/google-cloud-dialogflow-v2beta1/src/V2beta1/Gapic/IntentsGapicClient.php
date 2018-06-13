@@ -430,7 +430,7 @@ class IntentsGapicClient
      * @throws ValidationException
      * @experimental
      */
-    public function __construct($options = [])
+    public function __construct(array $options = [])
     {
         $clientOptions = $this->buildClientOptions($options);
         $this->setClientOptions($clientOptions);
@@ -498,7 +498,7 @@ class IntentsGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function listIntents($parent, $optionalArgs = [])
+    public function listIntents($parent, array $optionalArgs = [])
     {
         $request = new ListIntentsRequest();
         $request->setParent($parent);
@@ -563,7 +563,7 @@ class IntentsGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function getIntent($name, $optionalArgs = [])
+    public function getIntent($name, array $optionalArgs = [])
     {
         $request = new GetIntentRequest();
         $request->setName($name);
@@ -624,7 +624,7 @@ class IntentsGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function createIntent($parent, $intent, $optionalArgs = [])
+    public function createIntent($parent, $intent, array $optionalArgs = [])
     {
         $request = new CreateIntentRequest();
         $request->setParent($parent);
@@ -686,7 +686,7 @@ class IntentsGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function updateIntent($intent, $languageCode, $optionalArgs = [])
+    public function updateIntent($intent, $languageCode, array $optionalArgs = [])
     {
         $request = new UpdateIntentRequest();
         $request->setIntent($intent);
@@ -735,7 +735,7 @@ class IntentsGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function deleteIntent($name, $optionalArgs = [])
+    public function deleteIntent($name, array $optionalArgs = [])
     {
         $request = new DeleteIntentRequest();
         $request->setName($name);
@@ -823,7 +823,7 @@ class IntentsGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function batchUpdateIntents($parent, $languageCode, $optionalArgs = [])
+    public function batchUpdateIntents($parent, $languageCode, array $optionalArgs = [])
     {
         $request = new BatchUpdateIntentsRequest();
         $request->setParent($parent);
@@ -908,7 +908,7 @@ class IntentsGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function batchDeleteIntents($parent, $intents, $optionalArgs = [])
+    public function batchDeleteIntents($parent, $intents, array $optionalArgs = [])
     {
         $request = new BatchDeleteIntentsRequest();
         $request->setParent($parent);

@@ -233,7 +233,7 @@ class VideoIntelligenceServiceGapicClient
      * @throws ValidationException
      * @experimental
      */
-    public function __construct($options = [])
+    public function __construct(array $options = [])
     {
         $clientOptions = $this->buildClientOptions($options);
         $this->setClientOptions($clientOptions);
@@ -327,7 +327,7 @@ class VideoIntelligenceServiceGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function annotateVideo($inputUri, $features, $optionalArgs = [])
+    public function annotateVideo($inputUri, $features, array $optionalArgs = [])
     {
         $request = new AnnotateVideoRequest();
         $request->setInputUri($inputUri);

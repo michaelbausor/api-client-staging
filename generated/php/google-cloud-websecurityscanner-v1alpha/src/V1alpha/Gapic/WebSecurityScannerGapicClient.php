@@ -368,7 +368,7 @@ class WebSecurityScannerGapicClient
      * @throws ValidationException
      * @experimental
      */
-    public function __construct($options = [])
+    public function __construct(array $options = [])
     {
         $clientOptions = $this->buildClientOptions($options);
         $this->setClientOptions($clientOptions);
@@ -409,7 +409,7 @@ class WebSecurityScannerGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function createScanConfig($parent, $scanConfig, $optionalArgs = [])
+    public function createScanConfig($parent, $scanConfig, array $optionalArgs = [])
     {
         $request = new CreateScanConfigRequest();
         $request->setParent($parent);
@@ -453,7 +453,7 @@ class WebSecurityScannerGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function deleteScanConfig($name, $optionalArgs = [])
+    public function deleteScanConfig($name, array $optionalArgs = [])
     {
         $request = new DeleteScanConfigRequest();
         $request->setName($name);
@@ -498,7 +498,7 @@ class WebSecurityScannerGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function getScanConfig($name, $optionalArgs = [])
+    public function getScanConfig($name, array $optionalArgs = [])
     {
         $request = new GetScanConfigRequest();
         $request->setName($name);
@@ -564,7 +564,7 @@ class WebSecurityScannerGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function listScanConfigs($parent, $optionalArgs = [])
+    public function listScanConfigs($parent, array $optionalArgs = [])
     {
         $request = new ListScanConfigsRequest();
         $request->setParent($parent);
@@ -621,7 +621,7 @@ class WebSecurityScannerGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function updateScanConfig($scanConfig, $updateMask, $optionalArgs = [])
+    public function updateScanConfig($scanConfig, $updateMask, array $optionalArgs = [])
     {
         $request = new UpdateScanConfigRequest();
         $request->setScanConfig($scanConfig);
@@ -667,7 +667,7 @@ class WebSecurityScannerGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function startScanRun($name, $optionalArgs = [])
+    public function startScanRun($name, array $optionalArgs = [])
     {
         $request = new StartScanRunRequest();
         $request->setName($name);
@@ -713,7 +713,7 @@ class WebSecurityScannerGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function getScanRun($name, $optionalArgs = [])
+    public function getScanRun($name, array $optionalArgs = [])
     {
         $request = new GetScanRunRequest();
         $request->setName($name);
@@ -780,7 +780,7 @@ class WebSecurityScannerGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function listScanRuns($parent, $optionalArgs = [])
+    public function listScanRuns($parent, array $optionalArgs = [])
     {
         $request = new ListScanRunsRequest();
         $request->setParent($parent);
@@ -832,7 +832,7 @@ class WebSecurityScannerGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function stopScanRun($name, $optionalArgs = [])
+    public function stopScanRun($name, array $optionalArgs = [])
     {
         $request = new StopScanRunRequest();
         $request->setName($name);
@@ -899,7 +899,7 @@ class WebSecurityScannerGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function listCrawledUrls($parent, $optionalArgs = [])
+    public function listCrawledUrls($parent, array $optionalArgs = [])
     {
         $request = new ListCrawledUrlsRequest();
         $request->setParent($parent);
@@ -951,7 +951,7 @@ class WebSecurityScannerGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function getFinding($name, $optionalArgs = [])
+    public function getFinding($name, array $optionalArgs = [])
     {
         $request = new GetFindingRequest();
         $request->setName($name);
@@ -1023,7 +1023,7 @@ class WebSecurityScannerGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function listFindings($parent, $filter, $optionalArgs = [])
+    public function listFindings($parent, $filter, array $optionalArgs = [])
     {
         $request = new ListFindingsRequest();
         $request->setParent($parent);
@@ -1076,7 +1076,7 @@ class WebSecurityScannerGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function listFindingTypeStats($parent, $optionalArgs = [])
+    public function listFindingTypeStats($parent, array $optionalArgs = [])
     {
         $request = new ListFindingTypeStatsRequest();
         $request->setParent($parent);

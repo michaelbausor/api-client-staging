@@ -42,7 +42,7 @@ use stdClass;
 
 /**
  * @group datastore
- * @group grpc
+ * @group gapic
  */
 class DatastoreClientTest extends GeneratedTest
 {

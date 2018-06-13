@@ -43,7 +43,7 @@ use stdClass;
 
 /**
  * @group cloud-tasks
- * @group grpc
+ * @group gapic
  */
 class CloudTasksClientTest extends GeneratedTest
 {

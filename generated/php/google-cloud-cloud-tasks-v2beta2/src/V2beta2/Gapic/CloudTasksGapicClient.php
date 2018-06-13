@@ -359,7 +359,7 @@ class CloudTasksGapicClient
      * @throws ValidationException
      * @experimental
      */
-    public function __construct($options = [])
+    public function __construct(array $options = [])
     {
         $clientOptions = $this->buildClientOptions($options);
         $this->setClientOptions($clientOptions);
@@ -432,7 +432,7 @@ class CloudTasksGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function listQueues($parent, $optionalArgs = [])
+    public function listQueues($parent, array $optionalArgs = [])
     {
         $request = new ListQueuesRequest();
         $request->setParent($parent);
@@ -494,7 +494,7 @@ class CloudTasksGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function getQueue($name, $optionalArgs = [])
+    public function getQueue($name, array $optionalArgs = [])
     {
         $request = new GetQueueRequest();
         $request->setName($name);
@@ -567,7 +567,7 @@ class CloudTasksGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function createQueue($parent, $queue, $optionalArgs = [])
+    public function createQueue($parent, $queue, array $optionalArgs = [])
     {
         $request = new CreateQueueRequest();
         $request->setParent($parent);
@@ -643,7 +643,7 @@ class CloudTasksGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function updateQueue($queue, $optionalArgs = [])
+    public function updateQueue($queue, array $optionalArgs = [])
     {
         $request = new UpdateQueueRequest();
         $request->setQueue($queue);
@@ -708,7 +708,7 @@ class CloudTasksGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function deleteQueue($name, $optionalArgs = [])
+    public function deleteQueue($name, array $optionalArgs = [])
     {
         $request = new DeleteQueueRequest();
         $request->setName($name);
@@ -766,7 +766,7 @@ class CloudTasksGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function purgeQueue($name, $optionalArgs = [])
+    public function purgeQueue($name, array $optionalArgs = [])
     {
         $request = new PurgeQueueRequest();
         $request->setName($name);
@@ -825,7 +825,7 @@ class CloudTasksGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function pauseQueue($name, $optionalArgs = [])
+    public function pauseQueue($name, array $optionalArgs = [])
     {
         $request = new PauseQueueRequest();
         $request->setName($name);
@@ -889,7 +889,7 @@ class CloudTasksGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function resumeQueue($name, $optionalArgs = [])
+    public function resumeQueue($name, array $optionalArgs = [])
     {
         $request = new ResumeQueueRequest();
         $request->setName($name);
@@ -948,7 +948,7 @@ class CloudTasksGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function getIamPolicy($resource, $optionalArgs = [])
+    public function getIamPolicy($resource, array $optionalArgs = [])
     {
         $request = new GetIamPolicyRequest();
         $request->setResource($resource);
@@ -1014,7 +1014,7 @@ class CloudTasksGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function setIamPolicy($resource, $policy, $optionalArgs = [])
+    public function setIamPolicy($resource, $policy, array $optionalArgs = [])
     {
         $request = new SetIamPolicyRequest();
         $request->setResource($resource);
@@ -1078,7 +1078,7 @@ class CloudTasksGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function testIamPermissions($resource, $permissions, $optionalArgs = [])
+    public function testIamPermissions($resource, $permissions, array $optionalArgs = [])
     {
         $request = new TestIamPermissionsRequest();
         $request->setResource($resource);
@@ -1177,7 +1177,7 @@ class CloudTasksGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function listTasks($parent, $optionalArgs = [])
+    public function listTasks($parent, array $optionalArgs = [])
     {
         $request = new ListTasksRequest();
         $request->setParent($parent);
@@ -1256,7 +1256,7 @@ class CloudTasksGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function getTask($name, $optionalArgs = [])
+    public function getTask($name, array $optionalArgs = [])
     {
         $request = new GetTaskRequest();
         $request->setName($name);
@@ -1376,7 +1376,7 @@ class CloudTasksGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function createTask($parent, $task, $optionalArgs = [])
+    public function createTask($parent, $task, array $optionalArgs = [])
     {
         $request = new CreateTaskRequest();
         $request->setParent($parent);
@@ -1435,7 +1435,7 @@ class CloudTasksGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function deleteTask($name, $optionalArgs = [])
+    public function deleteTask($name, array $optionalArgs = [])
     {
         $request = new DeleteTaskRequest();
         $request->setName($name);
@@ -1566,7 +1566,7 @@ class CloudTasksGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function leaseTasks($parent, $leaseDuration, $optionalArgs = [])
+    public function leaseTasks($parent, $leaseDuration, array $optionalArgs = [])
     {
         $request = new LeaseTasksRequest();
         $request->setParent($parent);
@@ -1652,7 +1652,7 @@ class CloudTasksGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function acknowledgeTask($name, $scheduleTime, $optionalArgs = [])
+    public function acknowledgeTask($name, $scheduleTime, array $optionalArgs = [])
     {
         $request = new AcknowledgeTaskRequest();
         $request->setName($name);
@@ -1736,7 +1736,7 @@ class CloudTasksGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function renewLease($name, $scheduleTime, $leaseDuration, $optionalArgs = [])
+    public function renewLease($name, $scheduleTime, $leaseDuration, array $optionalArgs = [])
     {
         $request = new RenewLeaseRequest();
         $request->setName($name);
@@ -1821,7 +1821,7 @@ class CloudTasksGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function cancelLease($name, $scheduleTime, $optionalArgs = [])
+    public function cancelLease($name, $scheduleTime, array $optionalArgs = [])
     {
         $request = new CancelLeaseRequest();
         $request->setName($name);
@@ -1918,7 +1918,7 @@ class CloudTasksGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function runTask($name, $optionalArgs = [])
+    public function runTask($name, array $optionalArgs = [])
     {
         $request = new RunTaskRequest();
         $request->setName($name);

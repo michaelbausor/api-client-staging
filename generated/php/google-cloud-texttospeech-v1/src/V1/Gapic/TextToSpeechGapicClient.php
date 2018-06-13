@@ -168,7 +168,7 @@ class TextToSpeechGapicClient
      * @throws ValidationException
      * @experimental
      */
-    public function __construct($options = [])
+    public function __construct(array $options = [])
     {
         $clientOptions = $this->buildClientOptions($options);
         $this->setClientOptions($clientOptions);
@@ -213,7 +213,7 @@ class TextToSpeechGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function listVoices($optionalArgs = [])
+    public function listVoices(array $optionalArgs = [])
     {
         $request = new ListVoicesRequest();
         if (isset($optionalArgs['languageCode'])) {
@@ -263,7 +263,7 @@ class TextToSpeechGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function synthesizeSpeech($input, $voice, $audioConfig, $optionalArgs = [])
+    public function synthesizeSpeech($input, $voice, $audioConfig, array $optionalArgs = [])
     {
         $request = new SynthesizeSpeechRequest();
         $request->setInput($input);

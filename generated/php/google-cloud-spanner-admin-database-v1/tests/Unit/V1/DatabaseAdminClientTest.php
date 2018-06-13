@@ -42,7 +42,7 @@ use stdClass;
 
 /**
  * @group spanner-admin-database
- * @group grpc
+ * @group gapic
  */
 class DatabaseAdminClientTest extends GeneratedTest
 {

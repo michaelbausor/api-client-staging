@@ -176,7 +176,7 @@ class TraceServiceGapicClient
      * @throws ValidationException
      * @experimental
      */
-    public function __construct($options = [])
+    public function __construct(array $options = [])
     {
         $clientOptions = $this->buildClientOptions($options);
         $this->setClientOptions($clientOptions);
@@ -216,7 +216,7 @@ class TraceServiceGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function patchTraces($projectId, $traces, $optionalArgs = [])
+    public function patchTraces($projectId, $traces, array $optionalArgs = [])
     {
         $request = new PatchTracesRequest();
         $request->setProjectId($projectId);
@@ -262,7 +262,7 @@ class TraceServiceGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function getTrace($projectId, $traceId, $optionalArgs = [])
+    public function getTrace($projectId, $traceId, array $optionalArgs = [])
     {
         $request = new GetTraceRequest();
         $request->setProjectId($projectId);
@@ -382,7 +382,7 @@ class TraceServiceGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function listTraces($projectId, $optionalArgs = [])
+    public function listTraces($projectId, array $optionalArgs = [])
     {
         $request = new ListTracesRequest();
         $request->setProjectId($projectId);

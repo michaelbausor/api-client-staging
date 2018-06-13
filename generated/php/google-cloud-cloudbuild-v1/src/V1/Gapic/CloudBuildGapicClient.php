@@ -187,7 +187,7 @@ class CloudBuildGapicClient
      * @throws ValidationException
      * @experimental
      */
-    public function __construct($options = [])
+    public function __construct(array $options = [])
     {
         $clientOptions = $this->buildClientOptions($options);
         $this->setClientOptions($clientOptions);
@@ -229,7 +229,7 @@ class CloudBuildGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function createBuild($projectId, $build, $optionalArgs = [])
+    public function createBuild($projectId, $build, array $optionalArgs = [])
     {
         $request = new CreateBuildRequest();
         $request->setProjectId($projectId);
@@ -278,7 +278,7 @@ class CloudBuildGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function getBuild($projectId, $id, $optionalArgs = [])
+    public function getBuild($projectId, $id, array $optionalArgs = [])
     {
         $request = new GetBuildRequest();
         $request->setProjectId($projectId);
@@ -348,7 +348,7 @@ class CloudBuildGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function listBuilds($projectId, $optionalArgs = [])
+    public function listBuilds($projectId, array $optionalArgs = [])
     {
         $request = new ListBuildsRequest();
         $request->setProjectId($projectId);
@@ -402,7 +402,7 @@ class CloudBuildGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function cancelBuild($projectId, $id, $optionalArgs = [])
+    public function cancelBuild($projectId, $id, array $optionalArgs = [])
     {
         $request = new CancelBuildRequest();
         $request->setProjectId($projectId);
@@ -450,7 +450,7 @@ class CloudBuildGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function createBuildTrigger($projectId, $trigger, $optionalArgs = [])
+    public function createBuildTrigger($projectId, $trigger, array $optionalArgs = [])
     {
         $request = new CreateBuildTriggerRequest();
         $request->setProjectId($projectId);
@@ -498,7 +498,7 @@ class CloudBuildGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function getBuildTrigger($projectId, $triggerId, $optionalArgs = [])
+    public function getBuildTrigger($projectId, $triggerId, array $optionalArgs = [])
     {
         $request = new GetBuildTriggerRequest();
         $request->setProjectId($projectId);
@@ -544,7 +544,7 @@ class CloudBuildGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function listBuildTriggers($projectId, $optionalArgs = [])
+    public function listBuildTriggers($projectId, array $optionalArgs = [])
     {
         $request = new ListBuildTriggersRequest();
         $request->setProjectId($projectId);
@@ -589,7 +589,7 @@ class CloudBuildGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function deleteBuildTrigger($projectId, $triggerId, $optionalArgs = [])
+    public function deleteBuildTrigger($projectId, $triggerId, array $optionalArgs = [])
     {
         $request = new DeleteBuildTriggerRequest();
         $request->setProjectId($projectId);
@@ -639,7 +639,7 @@ class CloudBuildGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function updateBuildTrigger($projectId, $triggerId, $trigger, $optionalArgs = [])
+    public function updateBuildTrigger($projectId, $triggerId, $trigger, array $optionalArgs = [])
     {
         $request = new UpdateBuildTriggerRequest();
         $request->setProjectId($projectId);
@@ -688,7 +688,7 @@ class CloudBuildGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function runBuildTrigger($projectId, $triggerId, $source, $optionalArgs = [])
+    public function runBuildTrigger($projectId, $triggerId, $source, array $optionalArgs = [])
     {
         $request = new RunBuildTriggerRequest();
         $request->setProjectId($projectId);
@@ -761,7 +761,7 @@ class CloudBuildGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function retryBuild($projectId, $id, $optionalArgs = [])
+    public function retryBuild($projectId, $id, array $optionalArgs = [])
     {
         $request = new RetryBuildRequest();
         $request->setProjectId($projectId);

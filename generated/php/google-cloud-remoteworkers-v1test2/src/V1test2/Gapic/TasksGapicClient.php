@@ -296,7 +296,7 @@ class TasksGapicClient
      * @throws ValidationException
      * @experimental
      */
-    public function __construct($options = [])
+    public function __construct(array $options = [])
     {
         $clientOptions = $this->buildClientOptions($options);
         $this->setClientOptions($clientOptions);
@@ -334,7 +334,7 @@ class TasksGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function getTask($name, $optionalArgs = [])
+    public function getTask($name, array $optionalArgs = [])
     {
         $request = new GetTaskRequest();
         $request->setName($name);
@@ -385,7 +385,7 @@ class TasksGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function updateTaskResult($name, $result, $updateMask, $source, $optionalArgs = [])
+    public function updateTaskResult($name, $result, $updateMask, $source, array $optionalArgs = [])
     {
         $request = new UpdateTaskResultRequest();
         $request->setName($name);
@@ -436,7 +436,7 @@ class TasksGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function addTaskLog($name, $logId, $optionalArgs = [])
+    public function addTaskLog($name, $logId, array $optionalArgs = [])
     {
         $request = new AddTaskLogRequest();
         $request->setName($name);

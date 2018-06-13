@@ -40,7 +40,7 @@ use stdClass;
 
 /**
  * @group functions
- * @group grpc
+ * @group gapic
  */
 class CloudFunctionsServiceClientTest extends GeneratedTest
 {

@@ -201,7 +201,7 @@ class ServiceManagerGapicClient
      * @throws ValidationException
      * @experimental
      */
-    public function __construct($options = [])
+    public function __construct(array $options = [])
     {
         $clientOptions = $this->buildClientOptions($options);
         $this->setClientOptions($clientOptions);
@@ -273,7 +273,7 @@ class ServiceManagerGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function listServices($optionalArgs = [])
+    public function listServices(array $optionalArgs = [])
     {
         $request = new ListServicesRequest();
         if (isset($optionalArgs['producerProjectId'])) {
@@ -329,7 +329,7 @@ class ServiceManagerGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function getService($serviceName, $optionalArgs = [])
+    public function getService($serviceName, array $optionalArgs = [])
     {
         $request = new GetServiceRequest();
         $request->setServiceName($serviceName);
@@ -375,7 +375,7 @@ class ServiceManagerGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function createService($service, $optionalArgs = [])
+    public function createService($service, array $optionalArgs = [])
     {
         $request = new CreateServiceRequest();
         $request->setService($service);
@@ -424,7 +424,7 @@ class ServiceManagerGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function deleteService($serviceName, $optionalArgs = [])
+    public function deleteService($serviceName, array $optionalArgs = [])
     {
         $request = new DeleteServiceRequest();
         $request->setServiceName($serviceName);
@@ -473,7 +473,7 @@ class ServiceManagerGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function undeleteService($serviceName, $optionalArgs = [])
+    public function undeleteService($serviceName, array $optionalArgs = [])
     {
         $request = new UndeleteServiceRequest();
         $request->setServiceName($serviceName);
@@ -539,7 +539,7 @@ class ServiceManagerGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function listServiceConfigs($serviceName, $optionalArgs = [])
+    public function listServiceConfigs($serviceName, array $optionalArgs = [])
     {
         $request = new ListServiceConfigsRequest();
         $request->setServiceName($serviceName);
@@ -595,7 +595,7 @@ class ServiceManagerGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function getServiceConfig($serviceName, $configId, $optionalArgs = [])
+    public function getServiceConfig($serviceName, $configId, array $optionalArgs = [])
     {
         $request = new GetServiceConfigRequest();
         $request->setServiceName($serviceName);
@@ -652,7 +652,7 @@ class ServiceManagerGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function createServiceConfig($serviceName, $serviceConfig, $optionalArgs = [])
+    public function createServiceConfig($serviceName, $serviceConfig, array $optionalArgs = [])
     {
         $request = new CreateServiceConfigRequest();
         $request->setServiceName($serviceName);
@@ -715,7 +715,7 @@ class ServiceManagerGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function submitConfigSource($serviceName, $configSource, $optionalArgs = [])
+    public function submitConfigSource($serviceName, $configSource, array $optionalArgs = [])
     {
         $request = new SubmitConfigSourceRequest();
         $request->setServiceName($serviceName);
@@ -794,7 +794,7 @@ class ServiceManagerGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function listServiceRollouts($serviceName, $optionalArgs = [])
+    public function listServiceRollouts($serviceName, array $optionalArgs = [])
     {
         $request = new ListServiceRolloutsRequest();
         $request->setServiceName($serviceName);
@@ -849,7 +849,7 @@ class ServiceManagerGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function getServiceRollout($serviceName, $rolloutId, $optionalArgs = [])
+    public function getServiceRollout($serviceName, $rolloutId, array $optionalArgs = [])
     {
         $request = new GetServiceRolloutRequest();
         $request->setServiceName($serviceName);
@@ -909,7 +909,7 @@ class ServiceManagerGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function createServiceRollout($serviceName, $rollout, $optionalArgs = [])
+    public function createServiceRollout($serviceName, $rollout, array $optionalArgs = [])
     {
         $request = new CreateServiceRolloutRequest();
         $request->setServiceName($serviceName);
@@ -973,7 +973,7 @@ class ServiceManagerGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function generateConfigReport($newConfig, $oldConfig, $optionalArgs = [])
+    public function generateConfigReport($newConfig, $oldConfig, array $optionalArgs = [])
     {
         $request = new GenerateConfigReportRequest();
         $request->setNewConfig($newConfig);
@@ -1033,7 +1033,7 @@ class ServiceManagerGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function enableService($serviceName, $consumerId, $optionalArgs = [])
+    public function enableService($serviceName, $consumerId, array $optionalArgs = [])
     {
         $request = new EnableServiceRequest();
         $request->setServiceName($serviceName);
@@ -1092,7 +1092,7 @@ class ServiceManagerGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function disableService($serviceName, $consumerId, $optionalArgs = [])
+    public function disableService($serviceName, $consumerId, array $optionalArgs = [])
     {
         $request = new DisableServiceRequest();
         $request->setServiceName($serviceName);

@@ -293,7 +293,7 @@ class SessionsGapicClient
      * @throws ValidationException
      * @experimental
      */
-    public function __construct($options = [])
+    public function __construct(array $options = [])
     {
         $clientOptions = $this->buildClientOptions($options);
         $this->setClientOptions($clientOptions);
@@ -356,7 +356,7 @@ class SessionsGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function detectIntent($session, $queryInput, $optionalArgs = [])
+    public function detectIntent($session, $queryInput, array $optionalArgs = [])
     {
         $request = new DetectIntentRequest();
         $request->setSession($session);
@@ -433,7 +433,7 @@ class SessionsGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function streamingDetectIntent($optionalArgs = [])
+    public function streamingDetectIntent(array $optionalArgs = [])
     {
         return $this->startCall(
             'StreamingDetectIntent',

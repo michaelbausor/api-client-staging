@@ -190,7 +190,7 @@ class DatastoreGapicClient
      * @throws ValidationException
      * @experimental
      */
-    public function __construct($options = [])
+    public function __construct(array $options = [])
     {
         $clientOptions = $this->buildClientOptions($options);
         $this->setClientOptions($clientOptions);
@@ -230,7 +230,7 @@ class DatastoreGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function lookup($projectId, $keys, $optionalArgs = [])
+    public function lookup($projectId, $keys, array $optionalArgs = [])
     {
         $request = new LookupRequest();
         $request->setProjectId($projectId);
@@ -288,7 +288,7 @@ class DatastoreGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function runQuery($projectId, $partitionId, $optionalArgs = [])
+    public function runQuery($projectId, $partitionId, array $optionalArgs = [])
     {
         $request = new RunQueryRequest();
         $request->setProjectId($projectId);
@@ -343,7 +343,7 @@ class DatastoreGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function beginTransaction($projectId, $optionalArgs = [])
+    public function beginTransaction($projectId, array $optionalArgs = [])
     {
         $request = new BeginTransactionRequest();
         $request->setProjectId($projectId);
@@ -411,7 +411,7 @@ class DatastoreGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function commit($projectId, $mode, $mutations, $optionalArgs = [])
+    public function commit($projectId, $mode, $mutations, array $optionalArgs = [])
     {
         $request = new CommitRequest();
         $request->setProjectId($projectId);
@@ -462,7 +462,7 @@ class DatastoreGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function rollback($projectId, $transaction, $optionalArgs = [])
+    public function rollback($projectId, $transaction, array $optionalArgs = [])
     {
         $request = new RollbackRequest();
         $request->setProjectId($projectId);
@@ -510,7 +510,7 @@ class DatastoreGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function allocateIds($projectId, $keys, $optionalArgs = [])
+    public function allocateIds($projectId, $keys, array $optionalArgs = [])
     {
         $request = new AllocateIdsRequest();
         $request->setProjectId($projectId);
@@ -560,7 +560,7 @@ class DatastoreGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function reserveIds($projectId, $keys, $optionalArgs = [])
+    public function reserveIds($projectId, $keys, array $optionalArgs = [])
     {
         $request = new ReserveIdsRequest();
         $request->setProjectId($projectId);

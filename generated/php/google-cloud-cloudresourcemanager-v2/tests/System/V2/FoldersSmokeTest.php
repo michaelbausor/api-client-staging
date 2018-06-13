@@ -27,7 +27,7 @@ use Google\ApiCore\Testing\GeneratedTest;
 
 /**
  * @group cloudresourcemanager
- * @group grpc
+ * @group gapic
  */
 class FoldersSmokeTest extends GeneratedTest
 {

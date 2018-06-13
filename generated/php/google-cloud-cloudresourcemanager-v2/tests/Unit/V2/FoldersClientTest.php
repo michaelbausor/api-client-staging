@@ -40,7 +40,7 @@ use stdClass;
 
 /**
  * @group cloudresourcemanager
- * @group grpc
+ * @group gapic
  */
 class FoldersClientTest extends GeneratedTest
 {

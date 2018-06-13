@@ -42,7 +42,7 @@ use stdClass;
 
 /**
  * @group streetview_publish
- * @group grpc
+ * @group gapic
  */
 class StreetViewPublishServiceClientTest extends GeneratedTest
 {

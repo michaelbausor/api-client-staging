@@ -28,7 +28,7 @@ use Google\Streetview\Publish\V1\Photo;
 
 /**
  * @group streetview_publish
- * @group grpc
+ * @group gapic
  */
 class StreetViewPublishServiceSmokeTest extends GeneratedTest
 {

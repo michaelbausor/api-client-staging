@@ -185,7 +185,7 @@ class OperationsGapicClient
      * @throws ValidationException
      * @experimental
      */
-    public function __construct($options = [])
+    public function __construct(array $options = [])
     {
         $clientOptions = $this->buildClientOptions($options);
         $this->setClientOptions($clientOptions);
@@ -231,7 +231,7 @@ class OperationsGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function getOperation($name, $optionalArgs = [])
+    public function getOperation($name, array $optionalArgs = [])
     {
         $request = new GetOperationRequest();
         $request->setName($name);
@@ -309,7 +309,7 @@ class OperationsGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function listOperations($name, $filter, $optionalArgs = [])
+    public function listOperations($name, $filter, array $optionalArgs = [])
     {
         $request = new ListOperationsRequest();
         $request->setName($name);
@@ -374,7 +374,7 @@ class OperationsGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function cancelOperation($name, $optionalArgs = [])
+    public function cancelOperation($name, array $optionalArgs = [])
     {
         $request = new CancelOperationRequest();
         $request->setName($name);
@@ -426,7 +426,7 @@ class OperationsGapicClient
      * @throws ApiException if the remote call fails
      * @experimental
      */
-    public function deleteOperation($name, $optionalArgs = [])
+    public function deleteOperation($name, array $optionalArgs = [])
     {
         $request = new DeleteOperationRequest();
         $request->setName($name);

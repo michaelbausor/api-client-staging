@@ -34,7 +34,7 @@ use stdClass;
 
 /**
  * @group datastore-admin
- * @group grpc
+ * @group gapic
  */
 class DatastoreAdminClientTest extends GeneratedTest
 {
