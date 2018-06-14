@@ -85,7 +85,3 @@ workflows:
         filters:
           branches:
             only: autobuild-php
-    - php72:
-        filters:
-          branches:
-            only: autobuild-php
