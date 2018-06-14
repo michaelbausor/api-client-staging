@@ -21,10 +21,6 @@
  * https://github.com/google/googleapis/blob/master/google/devtools/containeranalysis/v1alpha1/containeranalysis.proto
  * and updates to that file get reflected here through a refresh process.
  *
- * EXPERIMENTAL: This client library class has not yet been declared GA (1.0). This means that
- * even though we intend the surface to be stable, we may make backwards incompatible changes
- * if necessary.
- *
  * @experimental
  */
 
@@ -78,10 +74,6 @@ use Google\Protobuf\GPBEmpty;
  * vulnerability could affect multiple packages in an image. In this case,
  * there would be one `Note` for the vulnerability and an `Occurrence` for
  * each package with the vulnerability referencing that `Note`.
- *
- * EXPERIMENTAL: This client library class has not yet been declared GA (1.0). This means that
- * even though we intend the surface to be stable, we may make backwards incompatible changes
- * if necessary.
  *
  * This class provides the ability to make remote calls to the backing service through method
  * calls that map to API methods. Sample code to get started:

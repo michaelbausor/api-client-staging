@@ -21,10 +21,6 @@
  * https://github.com/google/googleapis/blob/master/google/cloud/dataproc/v1beta2/workflow_templates.proto
  * and updates to that file get reflected here through a refresh process.
  *
- * EXPERIMENTAL: This client library class has not yet been declared GA (1.0). This means that
- * even though we intend the surface to be stable, we may make backwards incompatible changes
- * if necessary.
- *
  * @experimental
  */
 
@@ -55,10 +51,6 @@ use Google\Protobuf\GPBEmpty;
 /**
  * Service Description: The API interface for managing Workflow Templates in the
  * Cloud Dataproc API.
- *
- * EXPERIMENTAL: This client library class has not yet been declared GA (1.0). This means that
- * even though we intend the surface to be stable, we may make backwards incompatible changes
- * if necessary.
  *
  * This class provides the ability to make remote calls to the backing service through method
  * calls that map to API methods. Sample code to get started:

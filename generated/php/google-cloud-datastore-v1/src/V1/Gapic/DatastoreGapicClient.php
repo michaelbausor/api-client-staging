@@ -21,10 +21,6 @@
  * https://github.com/google/googleapis/blob/master/google/datastore/v1/datastore.proto
  * and updates to that file get reflected here through a refresh process.
  *
- * EXPERIMENTAL: This client library class has not yet been declared GA (1.0). This means that
- * even though we intend the surface to be stable, we may make backwards incompatible changes
- * if necessary.
- *
  * @experimental
  */
 
@@ -67,10 +63,6 @@ use Google\Cloud\Datastore\V1\TransactionOptions;
  * with both an empty path and an empty or unset partition ID. Normalization of
  * input keys sets the project ID (if not already set) to the project ID from
  * the request.
- *
- * EXPERIMENTAL: This client library class has not yet been declared GA (1.0). This means that
- * even though we intend the surface to be stable, we may make backwards incompatible changes
- * if necessary.
  *
  * This class provides the ability to make remote calls to the backing service through method
  * calls that map to API methods. Sample code to get started:

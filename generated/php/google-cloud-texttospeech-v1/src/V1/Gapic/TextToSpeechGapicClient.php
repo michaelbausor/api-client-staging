@@ -21,10 +21,6 @@
  * https://github.com/google/googleapis/blob/master/google/cloud/texttospeech/v1/cloud_tts.proto
  * and updates to that file get reflected here through a refresh process.
  *
- * EXPERIMENTAL: This client library class has not yet been declared GA (1.0). This means that
- * even though we intend the surface to be stable, we may make backwards incompatible changes
- * if necessary.
- *
  * @experimental
  */
 
@@ -47,10 +43,6 @@ use Google\Cloud\TextToSpeech\V1\VoiceSelectionParams;
 
 /**
  * Service Description: Service that implements Google Cloud Text-to-Speech API.
- *
- * EXPERIMENTAL: This client library class has not yet been declared GA (1.0). This means that
- * even though we intend the surface to be stable, we may make backwards incompatible changes
- * if necessary.
  *
  * This class provides the ability to make remote calls to the backing service through method
  * calls that map to API methods. Sample code to get started:

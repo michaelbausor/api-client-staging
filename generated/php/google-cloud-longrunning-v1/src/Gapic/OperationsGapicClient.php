@@ -35,10 +35,6 @@
  * https://github.com/google/googleapis/blob/master/google/longrunning/operations.proto
  * and updates to that file get reflected here through a refresh process.
  *
- * EXPERIMENTAL: This client library class has not yet been declared GA (1.0). This means that
- * even though we intend the surface to be stable, we may make backwards incompatible changes
- * if necessary.
- *
  * @experimental
  */
 
@@ -69,10 +65,6 @@ use Google\Protobuf\GPBEmpty;
  * Google Cloud Pub/Sub API) to receive the response.  Any API service that
  * returns long-running operations should implement the `Operations` interface
  * so developers can have a consistent client experience.
- *
- * EXPERIMENTAL: This client library class has not yet been declared GA (1.0). This means that
- * even though we intend the surface to be stable, we may make backwards incompatible changes
- * if necessary.
  *
  * This class provides the ability to make remote calls to the backing service through method
  * calls that map to API methods. Sample code to get started:

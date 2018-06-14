@@ -21,10 +21,6 @@
  * https://github.com/google/googleapis/blob/master/google/cloud/websecurityscanner/v1alpha/web_security_scanner.proto
  * and updates to that file get reflected here through a refresh process.
  *
- * EXPERIMENTAL: This client library class has not yet been declared GA (1.0). This means that
- * even though we intend the surface to be stable, we may make backwards incompatible changes
- * if necessary.
- *
  * @experimental
  */
 
@@ -66,10 +62,6 @@ use Google\Protobuf\GPBEmpty;
  * Service Description: Cloud Web Security Scanner Service identifies security vulnerabilities in web
  * applications hosted on Google Cloud Platform. It crawls your application, and
  * attempts to exercise as many user inputs and event handlers as possible.
- *
- * EXPERIMENTAL: This client library class has not yet been declared GA (1.0). This means that
- * even though we intend the surface to be stable, we may make backwards incompatible changes
- * if necessary.
  *
  * This class provides the ability to make remote calls to the backing service through method
  * calls that map to API methods. Sample code to get started:

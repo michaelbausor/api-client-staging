@@ -21,10 +21,6 @@
  * https://github.com/google/googleapis/blob/master/google/devtools/cloudbuild/v1/cloudbuild.proto
  * and updates to that file get reflected here through a refresh process.
  *
- * EXPERIMENTAL: This client library class has not yet been declared GA (1.0). This means that
- * even though we intend the surface to be stable, we may make backwards incompatible changes
- * if necessary.
- *
  * @experimental
  */
 
@@ -65,10 +61,6 @@ use Google\Protobuf\GPBEmpty;
  *
  * A user can list previously-requested builds or get builds by their ID to
  * determine the status of the build.
- *
- * EXPERIMENTAL: This client library class has not yet been declared GA (1.0). This means that
- * even though we intend the surface to be stable, we may make backwards incompatible changes
- * if necessary.
  *
  * This class provides the ability to make remote calls to the backing service through method
  * calls that map to API methods. Sample code to get started:

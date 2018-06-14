@@ -21,10 +21,6 @@
  * https://github.com/google/googleapis/blob/master/google/devtools/resultstore/v2/resultstore_download.proto
  * and updates to that file get reflected here through a refresh process.
  *
- * EXPERIMENTAL: This client library class has not yet been declared GA (1.0). This means that
- * even though we intend the surface to be stable, we may make backwards incompatible changes
- * if necessary.
- *
  * @experimental
  */
 
@@ -70,10 +66,6 @@ use Google\Devtools\Resultstore\V2\Target;
  * parameter.
  * Each resource in this interface carries a name field that
  * identifies the resource.
- *
- * EXPERIMENTAL: This client library class has not yet been declared GA (1.0). This means that
- * even though we intend the surface to be stable, we may make backwards incompatible changes
- * if necessary.
  *
  * This class provides the ability to make remote calls to the backing service through method
  * calls that map to API methods. Sample code to get started:
