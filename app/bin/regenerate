@@ -72,7 +72,7 @@ EOM
 
   cd $API_CLIENT_STAGING_DIR
   git add .
-  git commit -m "$API_CLIENT_STAGING_COMMIT_MSG"
+  git diff-index --quiet HEAD || git commit -m "$API_CLIENT_STAGING_COMMIT_MSG"
   cd -
 }
 
