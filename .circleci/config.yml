@@ -1,7 +1,7 @@
 ---
 version: 2.0
 jobs:
-  autobuild-php-nightly:
+  autobuild-nightly:
     docker:
       - image: docker:stable-git
     steps:
@@ -21,9 +21,9 @@ jobs:
             docker build -t googleapis/artman:autobuild-latest .
             docker tag googleapis/artman:autobuild-latest googleapis/artman:autobuild-$DATETAG
       - run:
-          name: Regenerate APIs for PHP
+          name: Regenerate APIs
           command: |
-            docker-compose -f ./docker-compose-php.yml run app
+            docker-compose -f ./docker-compose.yml up
 
 workflows:
   version: 2
@@ -35,7 +35,7 @@ workflows:
             branches:
               only: autobuild-nightly
     jobs:
-      - autobuild-php-nightly
+      - autobuild-nightly
   build:
     jobs:
-      - autobuild-php-nightly
+      - autobuild-nightly

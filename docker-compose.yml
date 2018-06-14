@@ -1,9 +1,16 @@
 version: '3'
 services:
-  app:
+  app-php:
     build:
       context: .
     image: googleapis/artman:autobuild-latest
     command: php
+    environment:
+      - GH_OAUTH_TOKEN=${AUTOBUILD_GH_OAUTH_TOKEN}
+  app-java:
+    build:
+      context: .
+    image: googleapis/artman:autobuild-latest
+    command: java
     environment:
       - GH_OAUTH_TOKEN=${AUTOBUILD_GH_OAUTH_TOKEN}
