@@ -117,6 +117,15 @@ function refresh_php() {
   refresh $ARTMAN_ARTIFACT_NAME $API_CLIENT_STAGING_BRANCH $ARTMAN_OUTPUT_SUBDIR_TO_COPY $API_CLIENT_STAGING_COPY_DST_SUBDIR
 }
 
+function refresh_java() {
+  ARTMAN_ARTIFACT_NAME=java_gapic
+  API_CLIENT_STAGING_BRANCH=autobuild-java
+  ARTMAN_OUTPUT_SUBDIR_TO_COPY=java
+  API_CLIENT_STAGING_COPY_DST_SUBDIR=generated/java
+
+  refresh $ARTMAN_ARTIFACT_NAME $API_CLIENT_STAGING_BRANCH $ARTMAN_OUTPUT_SUBDIR_TO_COPY $API_CLIENT_STAGING_COPY_DST_SUBDIR
+}
+
 if [ -z "$1" ]; then
   echo "Need to pass in a language"
   exit 1
@@ -125,6 +134,9 @@ fi
 case $1 in
 "php")
   refresh_php
+  ;;
+"java")
+  refresh_java
   ;;
 *)
   echo "Unknown language: $1"
