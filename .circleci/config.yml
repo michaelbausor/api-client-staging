@@ -65,22 +65,6 @@ jobs:
           command: ./vendor/bin/phpcs --standard=./phpcs-ruleset.xml ./generated/php
     working_directory: /var/code/googleapis/
 
-  php72:
-    docker:
-      - image: googleapis/php:7.2
-    steps:
-      - checkout
-      - run:
-          name: Install PHP library
-          command: composer install
-      - run:
-          name: Run GAPIC unit tests in PHP 7.2
-          command: ./vendor/bin/phpunit
-      - run:
-          name: Run phpcs format check in PHP 7.2
-          command: ./vendor/bin/phpcs --standard=./phpcs-ruleset.xml ./generated/php
-    working_directory: /var/code/googleapis/
-
 workflows:
   version: 2
   tests:
